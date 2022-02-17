@@ -93,3 +93,5 @@ cardano-cli transaction witness --signing-key-file payment3.skey --tx-body-file 
 cardano-cli transaction submit --tx-file txmultisig.signed $TESTNET
 cardano-cli query utxo --address $(cat payment4.addr) $TESTNET
 ```
+
+Hope you had fun doing this exercise!
