@@ -1,5 +1,9 @@
+
+
 # Multisig transaction
 This sample tries to explain how to submit a more complex transaction where funds from a multi-sig policy script are transferred to user4. the policy stipulates that 3 users - user1, user2, user3 need to authorize the transaction for it to succeed.
+
+Credits: [cardano-apexpool ](https://github.com/cardano-apexpool/cardano-scripts/blob/main/multi-signature-address/Readme.md)
 
 The transaction requires use of the witness-override and witness signing feature of cardano-cli
 
