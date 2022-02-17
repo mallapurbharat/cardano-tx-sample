@@ -26,7 +26,7 @@ The transaction requires use of the witness-override and witness signing feature
 
 ## Actual Steps
 
-
+##### First generate all the account keys that are required
 ```
 cardano-cli address key-gen --verification-key-file payment1.vkey --signing-key-file payment1.skey
 cardano-cli stake-address key-gen --verification-key-file stake1.vkey --signing-key-file stake1.skey
@@ -41,9 +41,8 @@ KEYHASH2=$(cardano-cli address key-hash --payment-verification-key-file payment2
 KEYHASH3=$(cardano-cli address key-hash --payment-verification-key-file payment3.vkey)```
 ```
 
-### create a new file called multisigpolicy.script 
-### and add the contents as below 
-### then fill out the values of KEYHASH1, 2, 3 in the content and save the file
+##### create a new file called multisigpolicy.script and add the contents as below then fill out the values of KEYHASH1, 2, 3 in the content and save the file
+
 ```
 {
   "type": "all",
@@ -65,26 +64,26 @@ KEYHASH3=$(cardano-cli address key-hash --payment-verification-key-file payment3
 }
 ```
 
-### now we build a script address from the script
+##### now we build a script address from the script
 
 `cardano-cli address build --payment-script-file exampletxs/multisigpolicy.script $TESTNET --out-file exampletxs/multisig.addr`
 
-### now use the [ADA Testnet faucet](https://testnets.cardano.org/en/testnets/cardano/tools/faucet/) to fund this script address with 1000 Ada.
+##### now use the [ADA Testnet faucet](https://testnets.cardano.org/en/testnets/cardano/tools/faucet/) to fund this script address with 1000 Ada.
 
-### check if the funds have been received of 1000 Ada
+##### check if the funds have been received of 1000 Ada
 `cardano-cli query utxo --address $(cat multisig.addr) $TESTNET`
 
-### take the txid and index and concat them into  a variable UTXO1
+##### take the txid and index and concat them into  a variable UTXO1
 `UTXO1=1978adb5f11e9eb8df3042a20c94fa0a7967bc48a487d64c656710ecb895197a#0`
 
 
-### build the basic transaction. note the witness-override option
+##### build the basic transaction. note the witness-override option
 `cardano-cli transaction build --tx-in $UTXO1 --change-address $(cat payment4.addr) --tx-in-script-file exampletxs/multisigpolicy.script --witness-override 3 --out-file txmultisig.raw $TESTNET`
 
-### view the transaction details
+##### view the transaction details
 `cardano-cli transaction view --tx-body-file txmultisig.raw`
 
-### witness the transaction by each user
+##### witness the transaction by each user
 ```
 cardano-cli transaction witness --signing-key-file payment1.skey --tx-body-file txmultisig.raw  --out-file payment1.witness $TESTNET
 
@@ -93,10 +92,10 @@ cardano-cli transaction witness --signing-key-file payment2.skey --tx-body-file 
 cardano-cli transaction witness --signing-key-file payment3.skey --tx-body-file txmultisig.raw  --out-file payment3.witness $TESTNET
 ```
 
-### now assemble all the witness sigs into the transaction
+##### now assemble all the witness sigs into the transaction
 `cardano-cli transaction assemble --tx-body-file txmultisig.raw --witness-file payment1.witness --witness-file payment2.witness --witness-file payment3.witness --out-file txmultisig.signed`
 
-### now submit the transaction finally
+##### now submit the transaction finally
 ```
 cardano-cli transaction submit --tx-file txmultisig.signed $TESTNET
 cardano-cli query utxo --address $(cat payment4.addr) $TESTNET
