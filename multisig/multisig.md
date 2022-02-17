@@ -27,11 +27,13 @@ The transaction requires use of the witness-override and witness signing feature
 ## Actual Steps
 
 
-```cardano-cli address key-gen --verification-key-file payment1.vkey --signing-key-file payment1.skey
+```
+cardano-cli address key-gen --verification-key-file payment1.vkey --signing-key-file payment1.skey
 cardano-cli stake-address key-gen --verification-key-file stake1.vkey --signing-key-file stake1.skey
 
 cardano-cli address key-gen --verification-key-file payment2.vkey --signing-key-file payment2.skey
-cardano-cli address key-gen --verification-key-file payment2.vkey --signing-key-file payment2.skey
+cardano-cli address key-gen --verification-key-file payment3.vkey --signing-key-file payment3.skey
+
 cardano-cli stake-address key-gen --verification-key-file stake2.vkey --signing-key-file stake2.skey
 
 KEYHASH1=$(cardano-cli address key-hash --payment-verification-key-file payment1.vkey)
@@ -39,7 +41,9 @@ KEYHASH2=$(cardano-cli address key-hash --payment-verification-key-file payment2
 KEYHASH3=$(cardano-cli address key-hash --payment-verification-key-file payment3.vkey)```
 ```
 
-### create a new file called multisigpolicy.script and add the contents as below and save the file
+### create a new file called multisigpolicy.script 
+### and add the contents as below 
+### then fill out the values of KEYHASH1, 2, 3 in the content and save the file
 ```
 {
   "type": "all",
@@ -47,15 +51,15 @@ KEYHASH3=$(cardano-cli address key-hash --payment-verification-key-file payment3
   [
     {
       "type": "sig",
-      "keyHash": "${KEYHASH1}"
+      "keyHash": "<KEYHASH1>"
     },
     {
       "type": "sig",
-      "keyHash": "${KEYHASH2}"
+      "keyHash": "<KEYHASH2>"
     },
     {
       "type": "sig",
-      "keyHash": "${KEYHASH3}"
+      "keyHash": "<KEYHASH3>"
     }
   ]
 }
