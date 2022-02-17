@@ -33,6 +33,7 @@ cardano-cli stake-address key-gen --verification-key-file stake2.vkey --signing-
 KEYHASH1=$(cardano-cli address key-hash --payment-verification-key-file payment1.vkey)
 KEYHASH2=$(cardano-cli address key-hash --payment-verification-key-file payment2.vkey)
 KEYHASH3=$(cardano-cli address key-hash --payment-verification-key-file payment3.vkey)```
+```
 
 ### create a new file called multisigpolicy.script and add the contents as below and save the file
 ```
@@ -76,7 +77,8 @@ KEYHASH3=$(cardano-cli address key-hash --payment-verification-key-file payment3
 `cardano-cli transaction view --tx-body-file txmultisig.raw`
 
 ### witness the transaction by each user
-```cardano-cli transaction witness --signing-key-file payment1.skey --tx-body-file txmultisig.raw  --out-file payment1.witness $TESTNET
+```
+cardano-cli transaction witness --signing-key-file payment1.skey --tx-body-file txmultisig.raw  --out-file payment1.witness $TESTNET
 
 cardano-cli transaction witness --signing-key-file payment2.skey --tx-body-file txmultisig.raw  --out-file payment2.witness $TESTNET
 
@@ -84,7 +86,7 @@ cardano-cli transaction witness --signing-key-file payment3.skey --tx-body-file 
 ```
 
 ### now assemble all the witness sigs into the transaction
-` cardano-cli transaction assemble --tx-body-file txmultisig.raw --witness-file payment1.witness --witness-file payment2.witness --witness-file payment3.witness --out-file txmultisig.signed`
+`cardano-cli transaction assemble --tx-body-file txmultisig.raw --witness-file payment1.witness --witness-file payment2.witness --witness-file payment3.witness --out-file txmultisig.signed`
 
 ### now submit the transaction finally
 ```
