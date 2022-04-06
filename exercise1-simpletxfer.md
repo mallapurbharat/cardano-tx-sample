@@ -1,14 +1,34 @@
 # Simple Sample - Value Transfer to another address
 
-## Part 1 Create a new set of keys and address payment2 address
+## Part 1 Create a new set of keys and address 
 
-### Note: You should have an already existing payment.addr setup with 1000 Test ADA for this follow-up exercise
 Set up the node socket path (if required)
 
     export CARDANO_NODE_SOCKET_PATH=$HOME/latest/node.socket (adapt this to your particular folder)
     export MAGIC="--testnet-magic 1097911063"
 
-Generate necessary keys
+### Note: You should have an already existing payment.addr setup with 1000 Test ADA for this follow-up exercise
+### SKIP THIS PART IF YOU ALREADY HAVE A PAYMENT address.
+If not, execute the following steps to create the address and fund it with test ada.
+
+    cardano-cli address key-gen \
+    --verification-key-file payment.vkey \
+    --signing-key-file payment.skey
+
+    cardano-cli stake-address key-gen \
+    --verification-key-file stake1.vkey \
+    --signing-key-file stake1.skey
+
+    cardano-cli address build \
+    --payment-verification-key-file payment.vkey \
+    --stake-verification-key-file stake1.vkey \
+    --out-file payment.addr \
+    ${MAGIC}
+    
+ **Fund the payment address with 1000 Test Ada from the Faucet (https://testnets.cardano.org/en/testnets/cardano/tools/faucet/)**
+
+### CONTINUE FROM HERE IF YOU ALREADY HAVE A PAYMENT ADDRESS 
+Generate necessary keys for the second account
 
     cardano-cli address key-gen \
     --verification-key-file payment2.vkey \
@@ -45,16 +65,6 @@ Build the transaction using `transaction build` (recommended)
     --tx-out $(cat payment2.addr)+25000000000 \
     --change-address $(cat payment.addr) \
     ${MAGIC} \
-    --out-file tx.raw
-
-or using `transaction build-raw`
-
-    cardano-cli transaction build-raw \
-    --alonzo-era \
-    --fee 200000 \
-    --tx-in ${UTXO1} \
-    --tx-out $(cat payment2.addr)+25000000000 \
-    --tx-out $(cat payment.addr)+74999800000 \
     --out-file tx.raw
 
 Sign the transaction
