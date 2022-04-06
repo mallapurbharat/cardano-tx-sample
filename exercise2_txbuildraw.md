@@ -20,22 +20,35 @@ To create a transaction in the shelley era onwards, we need to follow this proce
 * Sign the transaction
 * Submit the transaction
 
-**Protocol parameters**
 
-Query and save the parameters in **protocol.json**
+**TESTNET ID**
+save the environment variable TESTNET=--testnet-magic 1097911063
+
+**Protocol parameters**
+Query and save the parameters in **protocolparams.json**
 
     cardano-cli query protocol-parameters \
     --testnet-magic 1097911063 \
-    --out-file protocol.json
+    --out-file protocolparams.json
+    
+**FIND A UTXO for the given addr1 which can be consumed**
+**Copy-paste the transaction hash concatenated with the # symbol and index of the UTXO in question**
+
+    cardano-cli query utxo --address $(cat addr1.addr) $TESTNET
+
+**append and save to env. variable**
+
+    UTXO1=35a1e638d1c8a1bf74e79ea514adfb8d24113d1391baad2dceace737af30185d#0
 
 **Draft the transaction**
 
 In the draft `tx-out`, `ttl` and `fee` can be zero. Later we use the `out-file` `tx.draft` to calculate the `fee`
 
-    cardano-cli transaction build-raw \    
-    --tx-in <TxHash>#<TxIx> \
-    --tx-out <Address>+<Lovelace> \
-    --tx-out <Address>+0 \
+    cardano-cli transaction build-raw \ 
+    --shelley-era \
+    --tx-in $UTXO1 \
+    --tx-out $(cat addr2.addr)+250000000 \
+    --tx-out $(cat addr1.addr)+0 \
     --invalid-hereafter 0
     --fee 0 \
     --out-file tx.draft
@@ -50,11 +63,19 @@ Use `tx.draft` as `tx-body-file`. **Witnesses** are the amount of keys that must
     --tx-out-count 2 \
     --witness-count 1 \    
     --testnet-magic 1097911063 \
-    --protocol-params-file protocol.json
+    --protocol-params-file protocolparams.json
 
 For example:
 
     > 167965
+
+**Save the fee to a variable**
+
+    FEE=167965
+
+**Save the return balance to an environment variable**
+
+    BALANCE=$(expr 750000000 - $FEE)
 
 **Determine the validity interval**
 
@@ -71,21 +92,24 @@ Look for the value of `SlotNo`
         "block": 5580350
     }
 
-Therefore, if N = 300 slots
+Therefore, if N = 600 slots (10 minutes)
 
-    invalid-hereafter = 26633911 + 300
-    invalid-hereafter = 26634211
+**save this into an environment variable called VALIDTILL**
+
+    VALIDTILL= $(expr 26633911 + 600)    
+    echo $VALIDTILL    
+    26634511
 
 **Build the transaction**
 
 This time we include all the parameters:
 
     cardano-cli transaction build-raw \
-    --tx-in 4e3a6e7fdcb0d0efa17bf79c13aed2b4cb9baf37fb1aa2e39553d5bd720c5c99#4 \
-    --tx-out $(cat payment2.addr)+100000000 \
-    --tx-out $(cat payment.addr)+999899832035 \
-    --invalid-hereafter 26634211 \
-    --fee 167965 \
+    --tx-in $UTXO1 \
+    --tx-out $(cat addr2.addr)+250000000 \
+    --tx-out $(cat addr1.addr)+$BALANCE \
+    --invalid-hereafter $VALIDTILL \
+    --fee $FEE \
     --out-file tx.raw
 
 **Signing**
@@ -94,12 +118,17 @@ A transaction must prove that it has the right to spend its inputs. In the most 
 
     cardano-cli transaction sign \
     --tx-body-file tx.raw \
-    --signing-key-file payment.skey \
-    --mainnet \
+    --signing-key-file addr1.skey \
+    $TESTNET \
     --out-file tx.signed
 
 **Submit**
 
     cardano-cli transaction submit \
     --tx-file tx.signed \
-    --mainnet
+    $TESTNET
+
+**Get the transaction hash**
+
+    cardano-cli transaction txid --tx-file tx.signed
+    09e9d3223a30d4c45e9db26d2a97bb1afd0ffc36c5ed6888e2332bc9483a2a74
