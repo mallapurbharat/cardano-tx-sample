@@ -43,6 +43,8 @@ KEYHASH3=$(cardano-cli address key-hash --payment-verification-key-file payment3
 
 ##### create a new file called multisigpolicy.script and add the contents as below then fill out the values of KEYHASH1, 2, 3 in the content and save the file
 
+##### NOTE: If you don't replace <KEYHASHX> with an actual key hash, then your script might fail with a cryptic error!
+  
 ```
 {
   "type": "all",
@@ -71,7 +73,7 @@ KEYHASH3=$(cardano-cli address key-hash --payment-verification-key-file payment3
 ##### now use the [ADA Testnet faucet](https://testnets.cardano.org/en/testnets/cardano/tools/faucet/) to fund this script address with 1000 Ada.
 
 ##### check if the funds have been received of 1000 Ada
-`cardano-cli query utxo --address $(cat multisig.addr) $TESTNET`
+`cardano-cli query utxo --address $(cat exampletxs/multisig.addr) $TESTNET`
 
 ##### take the txid and index and concat them into  a variable UTXO1
 `UTXO1=1978adb5f11e9eb8df3042a20c94fa0a7967bc48a487d64c656710ecb895197a#0`
