@@ -7,7 +7,7 @@ Set up the node socket path (if required)
     export CARDANO_NODE_SOCKET_PATH=$HOME/latest/node.socket (adapt this to your particular folder)
     export MAGIC="--testnet-magic 1097911063"
 
-### Note: You should have an already existing payment.addr setup with 1000 Test ADA for this follow-up exercise
+### Note: The Below steps will help you setup an address and fund it with testAda.
 ### SKIP THIS PART IF YOU ALREADY HAVE A PAYMENT address.
 If not, execute the following steps to create the address and fund it with test ada.
 
