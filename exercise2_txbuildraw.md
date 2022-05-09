@@ -53,7 +53,7 @@ In the draft `tx-out`, `ttl` and `fee` can be zero. Later we use the `out-file` 
     --tx-in $UTXO1 \
     --tx-out $(cat addr2.addr)+250000000 \
     --tx-out $(cat addr1.addr)+0 \
-    --invalid-hereafter 0
+    --invalid-hereafter 0 \
     --fee 0 \
     --out-file tx.draft
 
