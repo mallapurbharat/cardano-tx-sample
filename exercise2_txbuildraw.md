@@ -35,6 +35,10 @@ Query and save the parameters in **protocolparams.json**
 **Copy-paste the transaction hash concatenated with the # symbol and index of the UTXO in question**
 
     cardano-cli query utxo --address $(cat addr1.addr) $TESTNET
+    
+                              TxHash                                 TxIx        Amount
+    --------------------------------------------------------------------------------------
+    35a1e638d1c8a1bf74e79ea514adfb8d24113d1391baad2dceace737af30185d     0        1000000000 lovelace + TxOutDatumNone
 
 **append and save to env. variable**
 
