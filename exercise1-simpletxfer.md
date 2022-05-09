@@ -23,7 +23,7 @@ If not, execute the following steps to create the address and fund it with test 
     --payment-verification-key-file payment.vkey \
     --stake-verification-key-file stake1.vkey \
     --out-file payment.addr \
-    ${MAGIC}
+    $MAGIC
     
  **Fund the payment address with 1000 Test Ada from the Faucet (https://testnets.cardano.org/en/testnets/cardano/tools/faucet/)**
 
@@ -42,12 +42,12 @@ Generate necessary keys for the second account
     --payment-verification-key-file payment2.vkey \
     --stake-verification-key-file stake2.vkey \
     --out-file payment2.addr \
-    ${MAGIC}
+    $MAGIC
 
 
 And check the UTxO for the payment address 
     
-    cardano-cli query utxo ${MAGIC} --address $(cat payment.addr)
+    cardano-cli query utxo $MAGIC --address $(cat payment.addr)
 
                                TxHash                                 TxIx        Amount
     --------------------------------------------------------------------------------------
@@ -61,7 +61,7 @@ Build the transaction using `transaction build` (recommended)
 
     cardano-cli transaction build \
     --alonzo-era \
-    --tx-in ${UTXO1} \
+    --tx-in $UTXO1 \
     --tx-out $(cat payment2.addr)+25000000000 \
     --change-address $(cat payment.addr) \
     ${MAGIC} \
