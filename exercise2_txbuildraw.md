@@ -28,7 +28,7 @@ save the environment variable TESTNET=--testnet-magic 1097911063
 Query and save the parameters in **protocolparams.json**
 
     cardano-cli query protocol-parameters \
-    --testnet-magic 1097911063 \
+    $TESTNET \
     --out-file protocolparams.json
     
 **FIND A UTXO for the given addr1 which can be consumed**
@@ -66,7 +66,7 @@ Use `tx.draft` as `tx-body-file`. **Witnesses** are the amount of keys that must
     --tx-in-count 1 \
     --tx-out-count 2 \
     --witness-count 1 \    
-    --testnet-magic 1097911063 \
+    $TESTNET \
     --protocol-params-file protocolparams.json
 
 For example:
@@ -100,7 +100,7 @@ Therefore, if N = 600 slots (10 minutes)
 
 **save this into an environment variable called VALIDTILL**
 
-    VALIDTILL= $(expr 26633911 + 600)    
+    VALIDTILL=$(expr 26633911 + 600)    
     echo $VALIDTILL    
     26634511
 
