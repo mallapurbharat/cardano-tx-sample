@@ -1,3 +1,5 @@
+#Copied from https://github.com/input-output-hk/cardano-node/blob/master/doc/reference/simple-scripts.md
+
 From the Shelley era onwards, Cardano has supported scripts and script
 addresses.
 
