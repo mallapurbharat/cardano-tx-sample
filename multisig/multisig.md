@@ -102,5 +102,7 @@ cardano-cli transaction witness --signing-key-file payment3.skey --tx-body-file 
 cardano-cli transaction submit --tx-file txmultisig.signed $TESTNET
 cardano-cli query utxo --address $(cat payment4.addr) $TESTNET
 ```
-
+Additional step: search for the multisig script address on testnet.cardanoscan.io, you should see a "Contract" heading for the address, and a verify button next to it. Click on the verify button, select the "Native script", this will open up a new window. paste the entire JSON for the multiscript file into the box and click on "Verify". 
+  
+  
 Hope you had fun doing this exercise!
