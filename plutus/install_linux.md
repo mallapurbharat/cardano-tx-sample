@@ -1,3 +1,6 @@
+## Step by Step Guide on Installation of Plutus Playground on Ubuntu/Linux systems
+
+
 1.Recommended machine config: Ubuntu 20.10 / 20.04 installed
 Native boot will work faster for all the below steps. Everything stays the same whether it's a VM or a native boot Ubuntu
 
@@ -39,7 +42,8 @@ Include on the open file this:
 
 (Reference: You can Save with Ctrl-O and close the file with Ctrl-X)
 
-PLUTUS-APPLICATION-FRAMEWORK	
+## SETUP PLUTUS-APPS
+
 7. Clone the Plutus-Apps repository
 Execute
     
@@ -54,7 +58,7 @@ Execute
     nix-shell 
     cabal update
 
-NOW THE PLUTUS PLAYGROUND
+## NOW INSTALL AND RUN THE PLUTUS PLAYGROUND
 9. In the same window change the directory by executing
     
         cd plutus-playground-server
@@ -83,8 +87,8 @@ Execute
 You might use a browser to navigate to https://localhost:8009 and be able to see the Plutus Application Playground, try compiling and running the test contract to see if you were successfull.
 
 
-Building the Plutus Documentation 
-**********************************
+## Building the Plutus Documentation 
+
 
 Navigate to the plutus-apps folder and open another nix-shell 
 Execute
