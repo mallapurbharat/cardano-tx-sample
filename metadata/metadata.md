@@ -28,7 +28,7 @@ We start by creating a `metadata.json` file with the following content:
 
 ```json
 {
-    "1337": {
+    "20220101": {
         "name": "hello world",
         "completed": 0
     }
@@ -37,7 +37,7 @@ We start by creating a `metadata.json` file with the following content:
 
 :::note
 
-Based on our theoretical **To-Do List** application, this `JSON` shape could be a way to insert / update entries into our list. We choose an arbitrary number (`1337`) as the key; we are basically saying that all metadata that will be inserted with that key is related to the **To-Do List** application data. Although we don't have control over what will be inserted with that metadata key since **Cardano** is an open platform.
+Based on our theoretical **To-Do List** application, this `JSON` shape could be a way to insert / update entries into our list. We choose an arbitrary number (`20220101`) as the key; we are basically saying that all metadata that will be inserted with that key is related to the **To-Do List** application data. Although we don't have control over what will be inserted with that metadata key since **Cardano** is an open platform.
 
 :::
 
