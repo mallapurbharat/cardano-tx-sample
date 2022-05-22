@@ -125,4 +125,36 @@ cardano-cli transaction submit \
 
 Congratulations, you are now able to submit **Cardano** transactions with metadata embedded into them. 
 
-This has been taken from the https://developers.cardano.org/docs/transaction-metadata/how-to-create-a-metadata-transaction-cli site for ease of reference.
+##Retrieving Metadata 
+
+There are many ways to retrieve metadata stored in the Cardano blockchain. 
+
+
+###Blockfrost
+
+Blockfrost provides an API to access the Cardano blockchain fast and easily.
+
+To retrieve metadata using Blockfrost, we call a specific endpoint for transaction metadata that they provide.
+
+** Query 1337 Metadata **
+
+    curl -H 'project_id: <api_key>' https://cardano-mainnet.blockfrost.io/api/v0/metadata/txs/labels/20220101 | jq
+    
+You should see something like this:
+
+    [
+      {
+        "tx_hash": "a54d000ad56cf5b4afe769b5d74b51a5817dc44102c7f8286887e28bf257a2fd",
+        "json_metadata": "gimbalabs-poc"
+      },
+      {
+        "tx_hash": "b26cc2323d6212a0396fa4ddb35578648853ef769e2e427d92019d50163f636a",
+        "json_metadata": "go build"
+      }
+    ]
+
+
+
+This has been taken from the below sites for ease of reference.
+1. https://developers.cardano.org/docs/transaction-metadata/how-to-create-a-metadata-transaction-cli 
+2. https://github.com/cardano-foundation/developer-portal/blob/staging/docs/transaction-metadata/retrieving-metadata.md
