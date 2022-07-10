@@ -40,7 +40,7 @@ Query and save the parameters in **protocolparams.json**
     --------------------------------------------------------------------------------------
     35a1e638d1c8a1bf74e79ea514adfb8d24113d1391baad2dceace737af30185d     0        1000000000 lovelace + TxOutDatumNone
 
-**append and save to env. variable**
+**append and save to env. variable, appending a # followed by the the Index (#0 in this case)**
 
     UTXO1=35a1e638d1c8a1bf74e79ea514adfb8d24113d1391baad2dceace737af30185d#0
 
