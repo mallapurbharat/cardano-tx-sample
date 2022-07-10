@@ -49,7 +49,7 @@ Query and save the parameters in **protocolparams.json**
 In the draft `tx-out`, `ttl` and `fee` can be zero. Later we use the `out-file` `tx.draft` to calculate the `fee`
 
     cardano-cli transaction build-raw \ 
-    --alonzo-era \
+    --babbage-era \
     --tx-in $UTXO1 \
     --tx-out $(cat addr2.addr)+250000000 \
     --tx-out $(cat addr1.addr)+0 \
@@ -109,6 +109,7 @@ Therefore, if N = 600 slots (10 minutes)
 This time we include all the parameters:
 
     cardano-cli transaction build-raw \
+    --babbage-era \
     --tx-in $UTXO1 \
     --tx-out $(cat addr2.addr)+250000000 \
     --tx-out $(cat addr1.addr)+$BALANCE \
