@@ -12,12 +12,12 @@ The transaction requires use of the witness-override and witness signing feature
 
 ### use the --witness-override 2 --out-file txmultutxo.raw
 
-  transaction view --tx-body-file txmultutxo.raw
+    transaction view --tx-body-file txmultutxo.raw
 
 ### witness the transaction using below command for both user1, user2
 
-  cardano-cli transaction witness --signing-key-file user1.skey --tx-body-file txmultutxo.raw --out-file user1.witness $TESTNET
+    cardano-cli transaction witness --signing-key-file user1.skey --tx-body-file txmultutxo.raw --out-file user1.witness $TESTNET
 
-  cardano-cli transaction assemble --tx-body-file txmultutxo.raw --witness-file user1.witness --witness-file user2.witness --out-file txmultutxo.signed
+    cardano-cli transaction assemble --tx-body-file txmultutxo.raw --witness-file user1.witness --witness-file user2.witness --out-file txmultutxo.signed
 
-  cardano-cli transaction submit --tx-file txmultutxo.signed $TESTNET
+    cardano-cli transaction submit --tx-file txmultutxo.signed $TESTNET
