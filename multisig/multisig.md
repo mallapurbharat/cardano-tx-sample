@@ -87,11 +87,11 @@ KEYHASH3=$(cardano-cli address key-hash --payment-verification-key-file payment3
 
 ##### witness the transaction by each user
 ```
-cardano-cli transaction witness --signing-key-file payment1.skey --tx-body-file txmultisig.raw  --out-file payment1.witness $TESTNET
+cardano-cli transaction witness --signing-key-file payment1.skey --tx-body-file txmultisig.raw  --out-file payment1.witness
 
-cardano-cli transaction witness --signing-key-file payment2.skey --tx-body-file txmultisig.raw  --out-file payment2.witness $TESTNET
+cardano-cli transaction witness --signing-key-file payment2.skey --tx-body-file txmultisig.raw  --out-file payment2.witness
 
-cardano-cli transaction witness --signing-key-file payment3.skey --tx-body-file txmultisig.raw  --out-file payment3.witness $TESTNET
+cardano-cli transaction witness --signing-key-file payment3.skey --tx-body-file txmultisig.raw  --out-file payment3.witness
 ```
 
 ##### now assemble all the witness sigs into the transaction
