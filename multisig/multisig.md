@@ -10,7 +10,7 @@ The transaction requires use of the witness-override and witness signing feature
 ## High level steps
 
 1. create 3 users - user1, user2, user3 verification key, signing key, staking key
-2. create 4th user who will get paid - user4 verification key, signing key, staking key
+## 2. create a 4th user who will get paid - user4 verification key, signing key, staking key
 
 3. generate a keygen hash for user1,2,3 verification keys.
 4. create a multisig script which stipulates that all 3 users need to sign the transaction
@@ -80,7 +80,7 @@ KEYHASH3=$(cardano-cli address key-hash --payment-verification-key-file payment3
 
 
 ##### build the basic transaction. note the witness-override option
-`cardano-cli transaction build --tx-in $UTXO1 --change-address $(cat payment4.addr) --tx-in-script-file exampletxs/multisigpolicy.script --witness-override 3 --out-file txmultisig.raw $TESTNET`
+`cardano-cli transaction build --babbage-era --tx-in $UTXO1 --change-address $(cat payment4.addr) --tx-in-script-file exampletxs/multisigpolicy.script --witness-override 3 --out-file txmultisig.raw $TESTNET`
 
 ##### view the transaction details
 `cardano-cli transaction view --tx-body-file txmultisig.raw`
