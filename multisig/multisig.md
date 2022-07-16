@@ -1,7 +1,7 @@
 
 
 # Multisig transaction
-This sample tries to explain how to submit a more complex transaction where funds from a multi-sig policy script are transferred to user4. the policy stipulates that 3 users - user1, user2, user3 need to authorize the transaction for it to succeed.
+This sample tries to explain how to submit a more complex transaction where funds from a multi-sig policy script are transferred to user4. the policy stipulates that 3 users with addresses - payment1, payment2, payment3 need to authorize the transaction for it to succeed.
 
 Credits: [cardano-apexpool ](https://github.com/cardano-apexpool/cardano-scripts/blob/main/multi-signature-address/Readme.md)
 
@@ -9,20 +9,20 @@ The transaction requires use of the witness-override and witness signing feature
 
 ## High level steps
 
-1. create 3 users - user1, user2, user3 verification key, signing key, staking key
-## 2. create a 4th user who will get paid - user4 verification key, signing key, staking key
+1. create 3 addresses - payment1, payment2, payment3 verification key, signing key, staking key
+## 2. create a 4th user who will get paid - payment4 verification key, signing key, staking key
 
-3. generate a keygen hash for user1,2,3 verification keys.
-4. create a multisig script which stipulates that all 3 users need to sign the transaction
+3. generate a keygen hash for payment1,2,3 verification keys.
+4. create a multisig script which stipulates that all 3 addresses need to sign the transaction
 5. create a script address for this script.
 6. fund it with testAda
 7. check if funds received by querying utxo
 8. create variable to store txid and index
 9. build a transaction with witness-override set to 3
-10. have each of the users user1,2,3 witness this transaction
+10. have each of the users payment1,2,3 witness this transaction
 11. assemble the transaction to use the raw transaction, witness files together as a signed transaction
 12. submit the transaction.
-13. verify the balance of user4
+13. verify the balance of address payment4
 
 ## Actual Steps
 
