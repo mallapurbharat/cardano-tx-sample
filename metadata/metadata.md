@@ -98,6 +98,7 @@ With that, We build the final transaction with the total amount of our wallet mi
 
 ```bash {3}
 cardano-cli transaction build-raw \
+--babbage-era \
 --tx-in dfb99f8f103e56a856e04e087255dbaf402f3801acb71a6baf423a1054d3ccd5#0 \
 --tx-out $(cat payment.addr)+1749480133 \
 --metadata-json-file metadata.json \
@@ -139,7 +140,7 @@ To retrieve metadata using Blockfrost, we call a specific endpoint for transacti
 
 ** Query 1337 Metadata **
 
-    curl -H 'project_id: <api_key>' https://cardano-mainnet.blockfrost.io/api/v0/metadata/txs/labels/20220101 | jq
+    curl -H 'project_id: <PUT_API_KEY_HERE>' https://cardano-testnet.blockfrost.io/api/v0/metadata/txs/labels/20220101 | jq
     
 You should see something like this:
 
