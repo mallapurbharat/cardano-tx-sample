@@ -67,6 +67,7 @@ Next, we create a draft transaction with the metadata embedded into it using the
 
 ```bash {2}
 cardano-cli transaction build-raw \
+--babbage-era \
 --tx-in dfb99f8f103e56a856e04e087255dbaf402f3801acb71a6baf423a1054d3ccd5#0 \
 --tx-out $(cat payment.addr)+0 \
 --metadata-json-file metadata.json \
