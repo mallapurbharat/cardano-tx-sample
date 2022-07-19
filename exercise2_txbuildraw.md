@@ -65,7 +65,7 @@ Use `tx.draft` as `tx-body-file`. **Witnesses** are the amount of keys that must
     --tx-body-file tx.draft \
     --tx-in-count 1 \
     --tx-out-count 2 \
-    --witness-count 1 \    
+    --witness-count 1 \
     $TESTNET \
     --protocol-params-file protocolparams.json
 
