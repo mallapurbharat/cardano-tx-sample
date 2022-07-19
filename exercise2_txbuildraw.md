@@ -48,7 +48,7 @@ Query and save the parameters in **protocolparams.json**
 
 In the draft `tx-out`, `ttl` and `fee` can be zero. Later we use the `out-file` `tx.draft` to calculate the `fee`
 
-    cardano-cli transaction build-raw \ 
+    cardano-cli transaction build-raw \
     --babbage-era \
     --tx-in $UTXO1 \
     --tx-out $(cat addr2.addr)+250000000 \
