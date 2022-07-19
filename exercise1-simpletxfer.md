@@ -60,7 +60,7 @@ Build the transaction using `transaction build` (recommended)
     UTXO1=7b4956b103d47908318ee92aa0790ff4b36fe7940991f0be350c9085fc4da175#1
 
     cardano-cli transaction build \
-    --alonzo-era \
+    --babbage-era \
     --tx-in $UTXO1 \
     --tx-out $(cat payment2.addr)+25000000000 \
     --change-address $(cat payment.addr) \
