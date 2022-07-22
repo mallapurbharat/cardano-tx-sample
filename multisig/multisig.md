@@ -10,14 +10,13 @@ The transaction requires use of the witness-override and witness signing feature
 ## High level steps
 
 1. create 3 addresses - payment1, payment2, payment3 verification key, signing key, staking key
-## 2. create a 4th user who will get paid - payment4 verification key, signing key, staking key
-
-3. generate a keygen hash for payment1,2,3 verification keys.
+### 2. create a 4th user who will get paid - payment4 verification key, signing key, staking key
+3. generate a key hash for the verification keys for payment1,payment2, payment3.
 4. create a multisig script which stipulates that all 3 addresses need to sign the transaction
 5. create a script address for this script.
 6. fund it with testAda
-7. check if funds received by querying utxo
-8. create variable to store txid and index
+7. check if funds received in the script address by querying for it's utxos
+8. create variable to store txid and index of the utxo
 9. build a transaction with witness-override set to 3
 10. have each of the users payment1,2,3 witness this transaction
 11. assemble the transaction to use the raw transaction, witness files together as a signed transaction
@@ -26,7 +25,7 @@ The transaction requires use of the witness-override and witness signing feature
 
 ## Actual Steps
 
-##### First generate all the account keys that are required
+##### First generate all the account keys that are required (can be skipped if you already have 3 separate addressess setup)
 ```
 cardano-cli address key-gen --verification-key-file payment1.vkey --signing-key-file payment1.skey
 cardano-cli stake-address key-gen --verification-key-file stake1.vkey --signing-key-file stake1.skey
