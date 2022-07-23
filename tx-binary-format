@@ -100,7 +100,7 @@ This input has type `0`, it means that it is common input corresponding to
 `utxo` (unspent transaction output). Other type (with any value that isn't `0`) corresponds to
 unknown type of input (for some new types in the future).
 
-Identifier of previous transaction `T` is a hash of `T`. It is BLACK2b-256 hash,
+Identifier of previous transaction `T` is a hash of `T`. It is BLAKE2b-256 hash,
 so its length is 32 bytes.
 
 Index of corresponding output in `T` is an integer (the value between `0` and `2^32 - 1`).
