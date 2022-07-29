@@ -145,18 +145,29 @@ To retrieve metadata using Blockfrost, we call a specific endpoint for transacti
 You should see something like this:
 
     [
-      {
-        "tx_hash": "a54d000ad56cf5b4afe769b5d74b51a5817dc44102c7f8286887e28bf257a2fd",
-        "json_metadata": "gimbalabs-poc"
-      },
-      {
-        "tx_hash": "b26cc2323d6212a0396fa4ddb35578648853ef769e2e427d92019d50163f636a",
-        "json_metadata": "go build"
-      }
+        {
+            "tx_hash": "96b888bb22f35ff2ac8fcef9bd0a1f25eefcb149813fc5aefef24461648d42b8",
+            "json_metadata": {
+                "name": "hello Bharat",
+                "completed": 100
+            }
+        },
+        {
+            "tx_hash": "a5af97df108c654055a0379a0cb4f1c0df83f2c55d00227edd9e02b300fb9068",
+            "json_metadata": {
+                "name": "hello world, greetings from the British Inland Waterways",
+                "completed": 0
+            }
+        },
+        {
+            "tx_hash": "8e13278d8e8c20074ad9cf70eeda361a67d9747df8376b70e75e9e2dbad46f24",
+            "json_metadata": {
+                "name": "hello world from batch58-43",
+                "completed": 0
+            }
+        }
     ]
-
-
-
+ 
 This has been taken from the below sites for ease of reference.
 1. https://developers.cardano.org/docs/transaction-metadata/how-to-create-a-metadata-transaction-cli 
 2. https://github.com/cardano-foundation/developer-portal/blob/staging/docs/transaction-metadata/retrieving-metadata.md
