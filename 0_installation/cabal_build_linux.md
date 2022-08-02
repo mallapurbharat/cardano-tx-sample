@@ -1,6 +1,6 @@
 # Installing the node from source
 
-The **experimental** version (**1.35.2**) of the node may be downloaded from the [cardano-node GitHub Releases](https://github.com/input-output-hk/cardano-node/releases) page by git checking out the **tags/1.35.2** for now
+The **experimental** version (**1.35.3**) of the node may be downloaded from the [cardano-node GitHub Releases](https://github.com/input-output-hk/cardano-node/releases) page by git checking out the **tags/1.35.3-testnetonly** for now
 Please follow the steps as below to make this happen.
 
 #### Prerequisites
@@ -179,7 +179,7 @@ cd cardano-node
 Check out the latest version of cardano-node (choose the tag with the highest version number: ``TAGGED-VERSION``):
 
 ```bash
-git checkout tags/1.35.2
+git checkout -f tags/1.35.3-testnetonly
 ```
 
 #### Configuring the build options
@@ -201,12 +201,12 @@ cabal build all
 Install the newly built node and CLI commands to the `~/.local/bin` directory:
 
 ```bash
-mkdir -p ~/cardano-node-1.35.2-linux
-cp -p "$(./scripts/bin-path.sh cardano-node)" ~/cardano-node-1.35.2-linux
-cp -p "$(./scripts/bin-path.sh cardano-cli)" ~/cardano-node-1.35.2-linux
+mkdir -p ~/cardano-node-1.35.3-linux
+cp -p "$(./scripts/bin-path.sh cardano-node)" ~/cardano-node-1.35.3-linux
+cp -p "$(./scripts/bin-path.sh cardano-cli)" ~/cardano-node-1.35.3-linux
 ```
 
-**Note:** `~/cardano-node-1.35.2-linux/` should be prependeded to the `$PATH`.
+**Note:** `~/cardano-node-1.35.3-linux/` should be prependeded to the `$PATH`.
 
 Note, we avoid using `cabal install` because that method prevents the installed binaries from reporting
 the git revision with the `--version` switch.
