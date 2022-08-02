@@ -1,6 +1,8 @@
 # Installing the node from source
 
-The **experimental** version (**1.35.3**) of the node may be downloaded from the [cardano-node GitHub Releases](https://github.com/input-output-hk/cardano-node/releases) page by git checking out the **tags/1.35.3-testnetonly** for now
+The **experimental** version (**1.35.3**) of the node may be downloaded from the [cardano-node GitHub Releases](https://github.com/input-output-hk/cardano-node/releases) page by git checking out the **tags/1.35.3-testnetonly** for now (till they update the latest tag with this)
+
+
 Please follow the steps as below to make this happen.
 
 #### Prerequisites
