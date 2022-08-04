@@ -1,10 +1,8 @@
 Based upon standard document for Installation on MacOS (https://developers.cardano.org/docs/get-started/installing-cardano-node/#macos) with some steps added as per suggestions.
----
-id: installing-cardano-node
-title: Installing cardano-node and cardano-cli from source
-sidebar_label: Installing cardano-node
+
 description: This guide shows how to build and install the cardano-node and cardano-cli from the source-code for MacOS, including the new M1 chip
-image: ../img/og-developer-portal.png
+
+
 --- 
 
 ### Overview
