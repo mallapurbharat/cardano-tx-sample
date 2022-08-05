@@ -1,11 +1,11 @@
 # How to retrieve the Plutus script (on-chain CBOR) for a given plutus script address.
 
-1. Take any Plutus script address 
-  a. You can get these by going to Cardanoscan, Go to the top menu Blockchain -> Contract Transactions.
-  b. Select any transaction, then scroll down to the details and the "Contracts" tab
-  c. Copy the contract address - for example addr1zxj47sy4qxlktqzmkrw8dahe46gtv8seakrshsqz26qnvzypw288a4x0xf8pxgcntelxmyclq83s0ykeehchz2wtspksr3q9nx
-  d. This also contains the staking component and bech32 identifiers
-  e. run the below command to decode the address
+1. Take any Plutus script address which you want to retrieve the Plutus Core output for.
+  - You can get these by going to Cardanoscan, Go to the top menu Blockchain -> Contract Transactions.
+  - Select any transaction, then scroll down to the details and the "Contracts" tab
+  - Copy the [contract address](https://cardanoscan.io/address/11a55f409501bf65805bb0dc76f6f9ae90b61e19ed870bc0025681360881728e7ed4cf324e1323135e7e6d931f01e30792d9cdf17129cb806d) - for example addr1zxj47sy4qxlktqzmkrw8dahe46gtv8seakrshsqz26qnvzypw288a4x0xf8pxgcntelxmyclq83s0ykeehchz2wtspksr3q9nx
+  - This also contains the staking component and bech32 identifiers
+  - run the below command to decode the address
   
   ```
   bech32 <<< addr1zxj47sy4qxlktqzmkrw8dahe46gtv8seakrshsqz26qnvzypw288a4x0xf8pxgcntelxmyclq83s0ykeehchz2wtspksr3q9nx
