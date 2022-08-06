@@ -1,3 +1,5 @@
+source: https://github.com/renzwo/cardano-plutus-apps-install-m1/blob/main/README.md
+
 # cardano-plutus-apps-install-m1
 
 some useful infos:
