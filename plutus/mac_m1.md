@@ -1,6 +1,7 @@
 source: https://github.com/renzwo/cardano-plutus-apps-install-m1/blob/main/README.md
 
 # cardano-plutus-apps-install-m1
+For the record, It took around 50 to 60 minutes to build plutus playground on my M1 mac with 16GB RAM.
 
 some useful infos:
 https://cardano.stackexchange.com/questions/6287/lessons-learned-setting-up-plutus-playground-feedback-welcome
