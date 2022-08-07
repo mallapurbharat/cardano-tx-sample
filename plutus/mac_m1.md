@@ -3,14 +3,6 @@ source: https://github.com/renzwo/cardano-plutus-apps-install-m1/blob/main/READM
 # cardano-plutus-apps-install-m1
 For the record, It took around 70 minutes to build plutus playground on my M1 mac with 16GB RAM.
 
-some useful infos:
-https://cardano.stackexchange.com/questions/6287/lessons-learned-setting-up-plutus-playground-feedback-welcome
-
-https://docs.plutus-community.com/docs/setup/MacOS.html (do not use the "plutus" repo! instead use "plutus-apps")
-
-For Intel Macs: https://github.com/Til-D/cardano-plutus
-
-And finalised thanks to @nrkramer Nolan Kramer!
 
 ## It might be a good idea to uninstall any existing Nix installation just to ensure that we don't face any issues due to old installations
 
@@ -73,10 +65,10 @@ same here, if there are errors during build, just call the command again.
 ```
 nix-shell
 ```
-12 goto server dir and start server (yes, with the GC thing in front)
+12 goto server dir and start server
 ```
 cd plutus-playground-server
-GC_DONT_GC=1 plutus-playground-server
+plutus-playground-server
 ```
 sometimes the server will not start at first try. try again, second start should work!
 
@@ -95,14 +87,12 @@ Interpreter ready
 ```
 nix-shell
 ```
-15 in the second terminal with nix-shell run
-```
-sudo npm install -g npm
-```
-16 goto client dir and start client (yes, with the GC thing in front)
+
+
+15 goto client dir and start client (yes, with the GC thing in front)
 ```
 cd plutus-playground-client
-GC_DONT_GC=1 npm run start
+npm run start
 ```
 17 wait until client has started and you see something like this
 ```
@@ -115,7 +105,7 @@ if the client takes to long it could be that it runs in timeout which is default
 
 to prevent this and change the timeout to 150 seconds eg, you can start the server with an option like this:
 ```
-GC_DONT_GC=1 plutus-playground-server -i 150s
+plutus-playground-server -i 150s
 ```
 
 
