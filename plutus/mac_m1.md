@@ -21,7 +21,7 @@ Refer https://nixos.org/manual/nix/stable/installation/installing-binary.html#ma
 ```
 sh <(curl -L https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume
 ```
-2 restart terminal
+### 2  restart terminal
 
 3 open the nix config file
 ```console
@@ -43,7 +43,7 @@ experimental-features = nix-command
 extra-experimental-features = flakes
 
 ```
-5 restart mac
+### 5 Restart the Mac!
 
 6 clone the right repository! not the ...plutus one, it needs to be the ...plutus-apps repo:
 ```
