@@ -121,15 +121,7 @@ GC_DONT_GC=1 plutus-playground-server -i 150s
 
 both should work now, client with https cert security warning in your browser: https://localhost:8009/
 
-wanna fix the certificate error in your browser? in plutus-playground-client folder do
-```
-nano webpack.config.js
-```
-and change the "https" flag from "true" to "false".
-
-thats it, but not needed. the url from now on would be http://localhost:8009
-
-
+### Follow up steps
 
 to make some space on your harddrive without deleting nix - if you do not use nix for a while:
 
