@@ -11,6 +11,10 @@ For Intel Macs: https://github.com/Til-D/cardano-plutus
 
 And finalised thanks to @nrkramer Nolan Kramer!
 
+## It might be a good idea to uninstall any existing Nix installation just to ensure that we don't face any issues due to old installations
+
+Refer https://nixos.org/manual/nix/stable/installation/installing-binary.html#macos for how to do this
+
 ## Step by step
 
 1 download the nix package manager and install it
@@ -27,8 +31,8 @@ sudo nano /etc/nix/nix.conf
 ```
 build-users-group = nixbld
 
-substituters = [ "https://hydra.iohk.io" "https://iohk.cachix.org" "https://cache.nixos.org/"];
-trusted-public-keys = [ "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ=" "iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo=" "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="];
+substituters        = https://hydra.iohk.io https://iohk.cachix.org https://cache.nixos.org/
+trusted-public-keys = hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ= iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo= cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
 
 system = x86_64-darwin
 extra-platforms = x86_64-darwin aarch64-darwin
