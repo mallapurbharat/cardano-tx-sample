@@ -2,6 +2,7 @@
 
 The **experimental** version (**1.35.3**) of the node may be downloaded from the [cardano-node GitHub Releases](https://github.com/input-output-hk/cardano-node/releases) page by git checking out the **tags/1.35.3-testnetonly** for now (till they update the latest tag with this)
 
+## Note: the same process will work for any tag, just use the relevant tag when doing the git checkout command
 
 Please follow the steps as below to make this happen.
 
