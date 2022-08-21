@@ -190,13 +190,7 @@ Download the `cardano-node` repository:
 ```bash
 git clone https://github.com/input-output-hk/cardano-node.git
 cd cardano-node
-git fetch --all --recurse-submodules --tags
-```
-Switch the repository to the tagged commit for 1.35.2: 
 
-```bash
-git checkout -f tags/1.35.2
-```
 
 :::important
 If upgrading an existing node, please ensure that you have read the [release notes on GitHub](https://github.com/input-output-hk/cardano-node/releases) for any changes.
