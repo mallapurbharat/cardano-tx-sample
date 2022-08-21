@@ -176,13 +176,6 @@ Change the working directory to the downloaded source code folder:
 cd cardano-node
 ```
 
-
-Check out the latest version of cardano-node (choose the tag with the highest version number: ``TAGGED-VERSION``):
-
-```bash
-git checkout -f tags/1.35.3-testnetonly
-```
-
 #### Configuring the build options
 
 We explicitly use the GHC version that we installed earlier.  This avoids defaulting to a system version of GHC that might be different than the one you have installed.
@@ -199,7 +192,7 @@ Build the node and CLI with `cabal`:
 cabal build all
 ```
 
-Install the newly built node and CLI commands to the `~/.local/bin` directory:
+Install the newly built node and CLI commands to the `~/cardano-node-1.35.3-linux` directory:
 
 ```bash
 mkdir -p ~/cardano-node-1.35.3-linux
