@@ -28,7 +28,7 @@ export CARDANO_NODE_SOCKET_PATH="$HOME/testnet/node.socket"
 
 alias previewnode='$PREVIEWNODE/cardano-node run --topology $TESTNETPATH/config/preview/topology.json --database-path $TESTNETPATH/db/preview/ --socket-path $CARDANO_NODE_SOCKET_PATH --port 3001 --config $TESTNETPATH/config/preview/config.json'
 
-alias legacynode='$CARDANOPATH/cardano-node run --topology $HOME/testnet/config/testnet-topology.json --database-path $HOME/testnet/db/ --socket-path $CARDANO_NODE_SOCKET_PATH --port 3001 --config $HOME/testnet/config/testnet-config.json'
+alias legacynode='$LEGACYNODE/cardano-node run --topology $HOME/testnet/config/legacy/testnet-topology.json --database-path $HOME/testnet/db/legacy/ --socket-path $CARDANO_NODE_SOCKET_PATH --port 3001 --config $HOME/testnet/config/legacy/testnet-config.json'
 
 alias ctip='cardano-cli query tip $TESTNET'
 
