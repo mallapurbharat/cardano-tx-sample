@@ -46,8 +46,11 @@ function utxo() { cardano-cli query utxo $TESTNET --address $1 ; }
 function utxof() { cardano-cli query utxo $TESTNET --address $(cat $1) ; }
 function submit() { cardano-cli transaction submit --tx-file $1 $TESTNET ;}
 
-
 ```
+
+##Ada faucet (WORKING AS OF NOW)
+Use this faucet to get preview / preprod ADA: https://docs.cardano.org/cardano-testnet/tools/faucet
+
 
 ### if after an improper shut-down, you get the below error
 
