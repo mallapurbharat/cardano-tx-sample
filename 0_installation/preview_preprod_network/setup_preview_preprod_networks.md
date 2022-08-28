@@ -61,13 +61,21 @@ then either restart the system or kill the cardano-node process (not recommended
 sudo killall cardano-node
 ```
 
-After this kind of an improper shutdown, you might need to delete all the files in the /testnet/db/preview/ folder and resync the database 
+After this kind of an improper shutdown, you might need to delete all the files in the /testnet/db/preview or /testnet/db/preprod folder and resync the database 
 
+For preview network
 ```
 cd $TESTNET/db/preview
 rm -rf ./*
 rm -rf ./.*
 ```
+For preprod network
+```
+cd $TESTNET/db/preprod
+rm -rf ./*
+rm -rf ./.*
+```
+
 
 Then re-launch the node and it will quickly sync to the latest block (takes only a minute or two right now!)
 
@@ -75,4 +83,7 @@ At the prompt, type the command below and hit ENTER
 ```
 previewnode
 
+OR
+
+preprodnode
 ```
