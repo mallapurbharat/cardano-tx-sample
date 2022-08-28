@@ -92,3 +92,18 @@ preprodnode
 ```
 
 NOTE: If you use Preprod, **you can only submit alonzo-era transactions**. In Preview, you can submit babbage era txs, but **testnet.cardanoscan.io will not show your transactions**.
+
+NOTE2: Even if your node is working fine, you might keep getting the following type of error (with some variations):
+```
+TracePromoteColdFailed 50 36 161.97.170.151:3002 161.126402860273s Network.Socket.connect: <socket: 95>: does not exist (Connection refused)
+
+
+[2022-08-28 16:15:10.52 UTC] TracePromoteColdFailed 50 36 161.97.170.151:3002 160.254143346317s Network.Socket.connect: <socket: 101>: does not exist (Connection refused)
+
+Followed by a new tip message like below
+:cardano.node.ChainDB:Notice:33] [2022-08-28 16:15:19.59 UTC] Chain extended, new tip: aa8f7bd7c37182de01ba8adc9dd2752ceaddfd14a99f48fa11b678a6ac6aaba2 at slot 6020119
+[Kalpatar:cardano.node.ChainDB:Notice:33] [2022-08-28 16:15:36.44 UTC] Chain extended, new tip: 140c50f6ae9bd015b7e71aaf949694c9833ce92b6df58ddbfb2d169cde7ee78a at slot 6020136
+```
+
+Check if your tip is changing after a minute or two, if not changing even after two minutes, then you might actually have some problem. :(
+
