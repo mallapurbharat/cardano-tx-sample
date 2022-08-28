@@ -90,3 +90,5 @@ OR
 
 preprodnode
 ```
+
+NOTE: If you use Preprod, **you can only submit alonzo-era transactions**. In Preview, you can submit babbage era txs, but **testnet.cardanoscan.io will not show your transactions**.
