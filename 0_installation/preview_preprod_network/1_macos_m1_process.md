@@ -256,5 +256,9 @@ Check the version that has been installed:
 cardano-cli --version
 cardano-node --version
 ```
+### NOTE: In case you get a "Killed: 9" error when executing either cardano-node or cardano-cli, please delete any existing binary files in the $HOME/cardano-node-1.35.3-macos folder, run a cabal build all and copy the files into the relevant folder. 
 
 Congratulations, you have successfully installed Cardano components into your MacOS system! 🎉🎉🎉
+
+### Now go ahead and use the **2_setup_preview_preprod_networks.md** to setup the relevant preview AND preprod networks.
+
