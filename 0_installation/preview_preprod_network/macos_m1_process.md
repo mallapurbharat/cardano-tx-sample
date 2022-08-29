@@ -185,12 +185,12 @@ Now we are ready to download, compile and install `cardano-node` and `cardano-cl
 cd $HOME/cardano-src
 ```
 
-Download the `cardano-node` repository and checkout the 1.35.2 tag (stable on testnet right now): 
+Download the `cardano-node` repository and checkout the 1.35.3 tag
 
 ```bash
 git clone https://github.com/input-output-hk/cardano-node.git
 cd cardano-node
-git checkout tags/1.35.2
+git checkout tags/1.35.3
 
 :::important
 If upgrading an existing node, please ensure that you have read the [release notes on GitHub](https://github.com/input-output-hk/cardano-node/releases) for any changes.
@@ -239,15 +239,15 @@ cabal build all
 Install the newly built node and CLI to the $HOME/.local/bin directory:
 
 ```bash
-mkdir -p $HOME/cardano-node-1.35.2-linux
-cp -p "$(./scripts/bin-path.sh cardano-node)" $HOME/cardano-node-1.35.2-linux
-cp -p "$(./scripts/bin-path.sh cardano-cli)" $HOME/cardano-node-1.35.2-linux
+mkdir -p $HOME/cardano-node-1.35.3-linux
+cp -p "$(./scripts/bin-path.sh cardano-node)" $HOME/cardano-node-1.35.3-macos
+cp -p "$(./scripts/bin-path.sh cardano-cli)" $HOME/cardano-node-1.35.3-macos
 ```
 
 We have to add this line below our shell profile so that the shell/terminal can recognize that `cardano-node` and `cardano-cli` are global commands. (`$HOME/.zshrc` or `$HOME/.bashrc` ***depending on the shell application you use***)
 
 ```bash
-export PATH="$HOME/cardano-node-1.35.2-linux/:$PATH"
+export PATH="$HOME/cardano-node-1.35.3-linux/:$PATH"
 
 
 
