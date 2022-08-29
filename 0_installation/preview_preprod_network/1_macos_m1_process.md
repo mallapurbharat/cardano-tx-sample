@@ -238,7 +238,7 @@ cabal build all
 Install the newly built node and CLI to the $HOME/.local/bin directory:
 
 ```bash
-mkdir -p $HOME/cardano-node-1.35.3-linux
+mkdir -p $HOME/cardano-node-1.35.3-macos
 cp -p "$(./scripts/bin-path.sh cardano-node)" $HOME/cardano-node-1.35.3-macos
 cp -p "$(./scripts/bin-path.sh cardano-cli)" $HOME/cardano-node-1.35.3-macos
 ```
