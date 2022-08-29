@@ -191,16 +191,15 @@ Download the `cardano-node` repository and checkout the 1.35.3 tag
 git clone https://github.com/input-output-hk/cardano-node.git
 cd cardano-node
 git checkout tags/1.35.3
-
-:::important
+```
+### Important
 If upgrading an existing node, please ensure that you have read the [release notes on GitHub](https://github.com/input-output-hk/cardano-node/releases) for any changes.
-:::
 
 ##### Configuring the build options
 
 We explicitly use the `ghc` version that we installed earlier. This avoids defaulting to a system version of `ghc` that might be newer or older than the one you have installed.
 
-```bash
+```
 cabal configure --with-compiler=ghc-8.10.7
 ```
 
@@ -215,8 +214,8 @@ export LDFLAGS="-L/opt/homebrew/opt/llvm/lib -L/opt/homebrew/opt/openssl@3/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include -I/opt/homebrew/opt/openssl@3/include"
 
 PATH="/opt/homebrew/opt/libtool/libexec/gnubin:/opt/homebrew/opt/openssl@3/lib/pkgconfig:/opt/homebrew/bin:/opt/homebrew/opt/llvm/bin:$PATH"
-
 ```
+
 #### You will need to run following commands on M1, those commands will set some cabal related options before building
 ```
 echo "package trace-dispatcher" >> cabal.project.local
@@ -248,10 +247,31 @@ We have to add this line below our shell profile so that the shell/terminal can 
 
 ```bash
 export PATH="$HOME/cardano-node-1.35.3-linux/:$PATH"
+export LEGACYNODE="$HOME/cardano-node-1.35.2-linux"
+export CARDANO_NODE="$HOME/cardano-node-1.35.3-linux"
+
+export PATH="$CARDANO_NODE:$LEGACYNODE:$PATH"
+export TESTNETPATH="$HOME/testnet"
+
+#magic id for preview network is 2, preprod 1
+export TESTNET="--testnet-magic 1"
+
+#legacy magic id
+#export TESTNET="--testnet-magic 1097911063"
+
+#socket path remains same, no change required as we're creating this file ourselves
+export CARDANO_NODE_SOCKET_PATH="$TESTNETPATH/node.socket"
+
+alias previewnode='$CARDANO_NODE/cardano-node run --topology $TESTNETPATH/config/preview/topology.json --database-path $TESTNETPATH/db/preview/ --socket-path $CARDANO_NODE_SOCKET_PATH --port 3001 --config $TESTNETPATH/config/preview/config.json'
+alias preprodnode='$CARDANO_NODE/cardano-node run --topology $TESTNETPATH/config/preprod/topology.json --database-path $TESTNETPATH/db/preprod/ --socket-path $CARDANO_NODE_SOCKET_PATH --port 3001 --config $TESTNETPATH/config/preprod/config.json'
+alias legacynode='$LEGACYNODE/cardano-node run --topology $TESTNETPATH/config/legacy/testnet-topology.json --database-path $TESTNETPATH/db/legacy/ --socket-path $CARDANO_NODE_SOCKET_PATH --port 3001 --config $TESTNETPATH/config/legacy/testnet-config.json'
+alias ctip='cardano-cli query tip $TESTNET'
 
 
-
-
+#some easy scripts to make life easier :D
+function utxo() { cardano-cli query utxo $TESTNET --address $1 ; }
+function utxof() { cardano-cli query utxo $TESTNET --address $(cat $1) ; }
+function submit() { cardano-cli transaction submit --tx-file $1 $TESTNET ;}
 
 ```
 
