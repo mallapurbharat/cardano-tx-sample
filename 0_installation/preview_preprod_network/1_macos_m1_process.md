@@ -3,6 +3,7 @@ Based upon standard document for Installation on MacOS (https://developers.carda
 description: This guide shows how to build and install the cardano-node and cardano-cli from the source-code for MacOS, including the new M1 chip
 
 ## NOTE: Whenever you update the .zshrc file, please reload it using "source ~/.zshrc" or by closing and restarting the terminal
+## NOTE2: for latest versions of brew, you can use /usr/local/opt instead of /opt/homebrew/opt. For example /usr/local/opt/llvm/bin instead of /opt/homebrew/opt/llvm/bin. Also, do a "brew install openssl"
 
 --- 
 
@@ -158,6 +159,8 @@ export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
 ```bash
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 ```
+
+NOTE: In modern macos installations, this path might be required to be configured to "/usr/local/opt/" instead of "/opt/homebrew/opt/"
 
 :::note
 llvm installation path might differs based on your installation, if you used default installation, it should be ok. Please check screen after you installed llvm to see this info, if you forgot or lost it, you can just reinstall llvm and then you will see them again.
