@@ -2,6 +2,7 @@ Based upon standard document for Installation on MacOS (https://developers.carda
 
 description: This guide shows how to build and install the cardano-node and cardano-cli from the source-code for MacOS, including the new M1 chip
 
+## NOTE: Whenever you update the .zshrc file, please reload it using "source ~/.zshrc" or by closing and restarting the terminal
 
 --- 
 
