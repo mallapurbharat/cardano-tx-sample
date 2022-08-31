@@ -203,7 +203,7 @@ We explicitly use the `ghc` version that we installed earlier. This avoids defau
 cabal configure --with-compiler=ghc-8.10.7
 ```
 
-### edit .bashrc / .zshrc and input the below lines
+### edit .bashrc / .zshrc and input the below lines, save the file and then reload it using "source ~/.bashrc (or .zshrc)"
 
 ```
 export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
@@ -214,6 +214,11 @@ export LDFLAGS="-L/opt/homebrew/opt/llvm/lib -L/opt/homebrew/opt/openssl@3/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include -I/opt/homebrew/opt/openssl@3/include"
 
 PATH="/opt/homebrew/opt/libtool/libexec/gnubin:/opt/homebrew/opt/openssl@3/lib/pkgconfig:/opt/homebrew/bin:/opt/homebrew/opt/llvm/bin:$PATH"
+```
+Reload the zshrc file (or exit the terminal and restart it)
+```
+source ~/.bashrc
+
 ```
 
 #### You will need to run following commands on M1, those commands will set some cabal related options before building
