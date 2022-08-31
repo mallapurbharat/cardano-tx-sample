@@ -14,7 +14,7 @@ Once you have built the cardano-node version 1.35.3, please follow the below ste
 - node.socket under $TESTNETPATH
 
 
-UPDATE your .bashrc / .zshrc file accordingly AND RELOAD IT AFTER SAVING IT!
+UPDATE your .bashrc / .zshrc file accordingly AND RELOAD IT AFTER SAVING IT by either restarting the terminal or running the "source ~/.bashrc" (or .zshrc) file!
 
 ```
 
