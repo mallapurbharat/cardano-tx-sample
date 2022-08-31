@@ -223,7 +223,7 @@ echo "  ghc-options: -Wwarn" >> cabal.project.local
 echo "" >> cabal.project.local
 ```
 
-### In case you face any issues / errors regarding HsOpenSSL, add the below lines to the cabal.project file under cardano-node/ folder
+### Add the below lines to the cabal.project file under cardano-node/ folder
 ```
 package HsOpenSSL
   extra-include-dirs: /opt/homebrew/opt/openssl@3/include
