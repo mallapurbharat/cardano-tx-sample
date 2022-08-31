@@ -246,7 +246,7 @@ cp -p "$(./scripts/bin-path.sh cardano-cli)" $HOME/cardano-node-1.35.3-macos
 We have to add this line below our shell profile so that the shell/terminal can recognize that `cardano-node` and `cardano-cli` are global commands. (`$HOME/.zshrc` or `$HOME/.bashrc` ***depending on the shell application you use***)
 
 ```bash
-export PATH="$HOME/cardano-node-1.35.3-linux/:$PATH"
+export PATH="$HOME/cardano-node-1.35.3-macos/:$PATH"
 ```
 
 Once saved, reload your shell profile by typing `source $HOME/.zshrc` or `source $HOME/.bashrc` (***depending on the shell application you use***).
