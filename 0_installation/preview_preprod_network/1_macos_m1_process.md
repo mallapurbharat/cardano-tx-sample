@@ -3,7 +3,8 @@ Based upon standard document for Installation on MacOS (https://developers.carda
 description: This guide shows how to build and install the cardano-node and cardano-cli from the source-code for MacOS, including the new M1 chip
 
 ## NOTE: Whenever you update the .zshrc file, please reload it using "source ~/.zshrc" or by closing and restarting the terminal
-## NOTE2: for latest versions of brew, you can use /usr/local/opt instead of /opt/homebrew/opt. For example /usr/local/opt/llvm/bin instead of /opt/homebrew/opt/llvm/bin. Also, do a "brew install openssl"
+
+
 
 --- 
 
@@ -161,10 +162,14 @@ export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
 ```
 
+## NOTE: for latest versions of brew, please check if your brew install of openssl / llvm are under /opt/homebrew/opt/ folder or whether it is under /usr/local/opt. 
+## Please revise the paths accordingly (you can use /usr/local/opt instead of /opt/homebrew/opt). 
+## For example /usr/local/opt/llvm/bin instead of /opt/homebrew/opt/llvm/bin. 
+
 ### If you installed llvm for M1, then you will need to add this too:
 
 ```bash
-export PATH="/usr/local/opt/llvm/bin:$PATH"
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 ```
 
 
@@ -214,16 +219,20 @@ cabal configure --with-compiler=ghc-8.10.7
 ```
 
 ### edit .bashrc / .zshrc and input the below lines, save the file and then reload it using "source ~/.bashrc (or .zshrc)"
+## NOTE: for latest versions of brew, please check if your brew install of openssl / llvm are under /opt/homebrew/opt/ folder or whether it is under /usr/local/opt. 
+## Please revise the paths accordingly (you can use /usr/local/opt instead of /opt/homebrew/opt). 
+## For example /usr/local/opt/llvm/bin instead of /opt/homebrew/opt/llvm/bin. 
+
 
 ```
 export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:/usr/local/opt/openssl@3/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:/opt/homebrew/opt/openssl@3/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 #For compilers to find llvm you may need to set:
-export LDFLAGS="-L/usr/local/opt/llvm/lib -L/usr/local/opt/openssl@3/lib"
-export CPPFLAGS="-I/usr/local/opt/llvm/include -I/usr/local/opt/openssl@3/include"
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib -L/opt/homebrew/opt/openssl@3/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include -I/opt/homebrew/opt/openssl@3/include"
 
-PATH="/usr/local/opt/libtool/libexec/gnubin:/usr/local/opt/openssl@3/lib/pkgconfig:/usr/local/opt/homebrew/bin:/usr/local/opt/llvm/bin:$PATH"
+PATH="/opt/homebrew/opt/libtool/libexec/gnubin:/opt/homebrew/opt/openssl@3/lib/pkgconfig:/opt/homebrew/opt/homebrew/bin:/opt/homebrew/opt/llvm/bin:$PATH"
 ```
 Reload the zshrc file (or exit the terminal and restart it)
 ```
@@ -241,8 +250,8 @@ echo "" >> cabal.project.local
 ### Add the below lines to the cabal.project file under cardano-node/ folder
 ```
 package HsOpenSSL
-  extra-include-dirs: /usr/local/opt/openssl@3/include
-  extra-lib-dirs: /usr/local/opt/openssl@3/lib
+  extra-include-dirs: /opt/homebrew/opt/openssl@3/include
+  extra-lib-dirs: /opt/homebrew/opt/openssl@3/lib
 ```
 
 #### Building and installing the node
