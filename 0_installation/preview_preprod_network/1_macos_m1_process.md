@@ -48,7 +48,14 @@ brew install automake
 brew install pkg-config
 ```
 
-#### You will need to install llvm in case you are using M1
+#### You will need to install openssl3.
+
+```
+brew install openssl@3
+```
+
+
+### NOTE: you will also need llvm in case you are using Mac M1 
 
 ```
 brew install llvm
@@ -157,10 +164,9 @@ export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
 ### If you installed llvm for M1, then you will need to add this too:
 
 ```bash
-export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export PATH="/usr/local/opt/llvm/bin:$PATH"
 ```
 
-NOTE: In modern macos installations, this path might be required to be configured to "/usr/local/opt/" instead of "/opt/homebrew/opt/"
 
 :::note
 llvm installation path might differs based on your installation, if you used default installation, it should be ok. Please check screen after you installed llvm to see this info, if you forgot or lost it, you can just reinstall llvm and then you will see them again.
@@ -211,13 +217,13 @@ cabal configure --with-compiler=ghc-8.10.7
 
 ```
 export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:/opt/homebrew/opt/openssl@3/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:/usr/local/opt/openssl@3/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 #For compilers to find llvm you may need to set:
-export LDFLAGS="-L/opt/homebrew/opt/llvm/lib -L/opt/homebrew/opt/openssl@3/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/llvm/include -I/opt/homebrew/opt/openssl@3/include"
+export LDFLAGS="-L/usr/local/opt/llvm/lib -L/usr/local/opt/openssl@3/lib"
+export CPPFLAGS="-I/usr/local/opt/llvm/include -I/usr/local/opt/openssl@3/include"
 
-PATH="/opt/homebrew/opt/libtool/libexec/gnubin:/opt/homebrew/opt/openssl@3/lib/pkgconfig:/opt/homebrew/bin:/opt/homebrew/opt/llvm/bin:$PATH"
+PATH="/usr/local/opt/libtool/libexec/gnubin:/usr/local/opt/openssl@3/lib/pkgconfig:/usr/local/opt/homebrew/bin:/usr/local/opt/llvm/bin:$PATH"
 ```
 Reload the zshrc file (or exit the terminal and restart it)
 ```
@@ -235,8 +241,8 @@ echo "" >> cabal.project.local
 ### Add the below lines to the cabal.project file under cardano-node/ folder
 ```
 package HsOpenSSL
-  extra-include-dirs: /opt/homebrew/opt/openssl@3/include
-  extra-lib-dirs: /opt/homebrew/opt/openssl@3/lib
+  extra-include-dirs: /usr/local/opt/openssl@3/include
+  extra-lib-dirs: /usr/local/opt/openssl@3/lib
 ```
 
 #### Building and installing the node
