@@ -74,6 +74,20 @@ function submit() { cardano-cli transaction submit --tx-file $1 $TESTNET ;}
 
 ```
 
+At the prompt, type the command below and hit ENTER
+```
+previewnode
+
+OR
+
+preprodnode
+```
+
+NOTE: If you use Preprod, **you can only submit alonzo-era transactions**. In Preview, you can submit babbage era txs, but **testnet.cardanoscan.io will not show your transactions**.
+
+
+
+
 
 ### if after an improper shut-down, you get the below error
 
@@ -105,16 +119,7 @@ rm -rf ./.*
 
 Then re-launch the node and it will quickly sync to the latest block (takes only a minute or two right now!)
 
-At the prompt, type the command below and hit ENTER
-```
-previewnode
 
-OR
-
-preprodnode
-```
-
-NOTE: If you use Preprod, **you can only submit alonzo-era transactions**. In Preview, you can submit babbage era txs, but **testnet.cardanoscan.io will not show your transactions**.
 
 ### NOTE2: Even if your node is working fine, you might keep getting the following type of error (with some variations):
 ```
