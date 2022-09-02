@@ -1,6 +1,6 @@
 Once you have built the cardano-node version 1.35.3, please follow the below steps to sync to the preview testnet:
 
-### Download the All_Networks_Config_Files_cardano-config.tar.gz file, extract it and add the config files respectively to below folder structure
+### Download the Config_Files_Preview_Preprod_Legacy_Networks.zip file (in the preview_preprod_network folder), extract it and add the config files respectively to below folder structure
 
 ### FOLDER ORGANIZATION
 - node binaries under $HOME/cardano-node-1.35.3-linux (or macos)
