@@ -211,7 +211,9 @@ the git revision with the `--version` switch.
 Check the version that has been installed:
 
 ```bash
-cardano-cli --version
+cd ~/cardano-node-1.35.3-linux
+
+./cardano-cli --version
 ```
 
 Repeat the above process when you need to update to a new version.
