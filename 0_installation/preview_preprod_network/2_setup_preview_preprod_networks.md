@@ -74,9 +74,6 @@ function submit() { cardano-cli transaction submit --tx-file $1 $TESTNET ;}
 
 ```
 
-## Now get some funds from the Ada faucet (WORKING AS OF NOW)
-Use this faucet to get preview / preprod ADA: https://docs.cardano.org/cardano-testnet/tools/faucet
-
 
 ### if after an improper shut-down, you get the below error
 
@@ -133,3 +130,7 @@ Followed by a new tip message like below
 
 Best way is to check if your tip block is changing after a minute or two, if not changing even after two minutes, then you might actually have some problem. :(
 
+
+
+## To get some funds from the Ada faucet (WORKING AS OF NOW)
+Use this faucet to get preview / preprod ADA: https://docs.cardano.org/cardano-testnet/tools/faucet
