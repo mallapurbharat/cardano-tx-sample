@@ -195,7 +195,7 @@ Build the node and CLI with `cabal`:
 cabal build all
 ```
 
-Install the newly built node and CLI commands to the `~/cardano-node-1.35.2-linux` directory:
+Install the newly built node and CLI commands to the `~/cardano-node-1.35.3-linux` directory:
 
 ```bash
 mkdir -p ~/cardano-node-1.35.3-linux
