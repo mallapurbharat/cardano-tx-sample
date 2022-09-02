@@ -3,15 +3,12 @@ Once you have built the cardano-node version 1.35.3, please follow the below ste
 ### Download the All_Networks_Config_Files_cardano-config.tar.gz file, extract it and add the config files respectively to below folder structure
 
 ### FOLDER ORGANIZATION
-- node binaries under $HOME/cardano-node-1.35.3-linux
-- testnet folder under $TESTNETPATH/ (refer environment variable below)
-- preview network configuration files under $TESTNETPATH/config/preview/
-- preprod network configuration files under $TESTNETPATH/config/preprod/
-- legacy network configuration files under $TESTNETPATH/config/legacy/
-- preview database under $TESTNETPATH/db/preview/
-- preprod database under $TESTNETPATH/db/preprod/
-- legacy database under $TESTNETPATH/db/legacy/
-- node.socket under $TESTNETPATH
+- node binaries under $HOME/cardano-node-1.35.3-linux (or macos)
+- testnet folder as in  ~/testnet (refer environment variable below)
+- preview network configuration files under ~/testnet/config/preview/
+- preprod network configuration files under ~/testnet/config/preprod/
+- legacy network configuration files under ~/testnet/config/legacy/
+
 
 
 UPDATE your .bashrc / .zshrc file accordingly AND RELOAD IT AFTER SAVING IT by either restarting the terminal or running the "source ~/.bashrc" (or .zshrc) file!
