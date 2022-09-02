@@ -139,7 +139,6 @@ sudo apt install libsodium-dev
 Create a working directory for your builds:
 
 ```bash
-mkdir -p ~/cardano-src
 cd ~/cardano-src
 ```
 
