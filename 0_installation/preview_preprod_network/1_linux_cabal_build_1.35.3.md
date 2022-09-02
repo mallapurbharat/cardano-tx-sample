@@ -156,13 +156,6 @@ sudo make install
 
 #### Downloading the source code for cardano-node
 
-Create a working directory for your builds:
-
-```bash
-mkdir -p ~/cardano-src
-cd ~/cardano-src
-```
-
 Download the Cardano node sources:
 
 ```bash
