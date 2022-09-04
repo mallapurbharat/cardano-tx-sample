@@ -78,6 +78,7 @@ For example:
     FEE=167965
 
 **Save the return balance to an environment variable**
+This should be understood as (SUM OF INPUT UTXOs) - (SUM OF OUTPUT UTXOs) - Fee
 
     BALANCE=$(expr 750000000 - $FEE)
 
@@ -85,7 +86,7 @@ For example:
 
 When building and submitting a transaction in the shelley era you need to check the current tip of the blockchain, for example, if the tip is slot 4000, you should set the invalid-hereafter to (4000 + N slots), so that you have enough time to build and submit a transaction. Submitting a transaction with a validity interval set in the past would result in a tx error.
 
-    cardano-cli query tip --testnet-magic 1097911063 
+    cardano-cli query tip $TESTNET 
 
 Look for the value of `SlotNo`
 
