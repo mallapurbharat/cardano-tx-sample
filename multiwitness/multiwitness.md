@@ -1,4 +1,6 @@
-This sample tries to explain how to submit a more complex transaction where two utxos from DIFFERENT users - user1, user2 can be utilized as inputs to pay out to a user3.
+### This Exercise is left to the learner to test his understanding of the UTXO model.
+
+This exercise tries to explain how to submit a more complex transaction where two utxos from DIFFERENT users - user1, user2 can be utilized as inputs to pay out to a user3.
 
 The transaction requires use of the witness-override and witness signing feature of cardano-cli
 
@@ -21,3 +23,14 @@ The transaction requires use of the witness-override and witness signing feature
     cardano-cli transaction assemble --tx-body-file txmultutxo.raw --witness-file user1.witness --witness-file user2.witness --out-file txmultutxo.signed
 
     cardano-cli transaction submit --tx-file txmultutxo.signed $TESTNET
+    
+    
+    
+  Additional exercise: Work out how this feature could be used to conduct an ATOMIC swap 
+  - Atomic swap meaning that the transaction either succeeds completely, OR FAILS completely
+  - For now, assume the swap as below:
+  - A has 250 Ada
+  - B has 750 Ada
+  - the swap tx should EXCHANGE THE two values between A and B
+  - since we haven't yet studied native tokens, for now this is limited to swapping value.
+  - Later on, we can actually exchange tokens using the same logic
