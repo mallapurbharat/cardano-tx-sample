@@ -24,13 +24,4 @@ The transaction requires use of the witness-override and witness signing feature
 
     cardano-cli transaction submit --tx-file txmultutxo.signed $TESTNET
     
-    
-    
-  Additional exercise: Work out how this feature could be used to conduct an ATOMIC swap 
-  - Atomic swap meaning that the transaction either succeeds completely, OR FAILS completely
-  - For now, assume the swap as below:
-  - A has 250 Ada
-  - B has 750 Ada
-  - the swap tx should EXCHANGE THE two values between A and B
-  - since we haven't yet studied native tokens, for now this is limited to swapping value.
-  - Later on, we can actually exchange tokens using the same logic
+  
