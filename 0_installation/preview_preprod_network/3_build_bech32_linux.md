@@ -9,27 +9,53 @@ cd bech32/
 cabal build all
 ```
 ### At this point it will show the build output path at the last step as below...
+## In Linux
 ```
 [2 of 2] Compiling Main             ( app/Main.hs, /home/bharat/cardano-src/bech32/dist-newstyle/build/x86_64-linux/ghc-8.10.7/bech32-1.1.2/x/bech32/build/bech32/bech32-tmp/Main.o )
 Linking /home/bharat/cardano-src/bech32/dist-newstyle/build/x86_64-linux/ghc-8.10.7/bech32-1.1.2/x/bech32/build/bech32/bech32 ...
 
 ```
 
-In the case of linux it will be built at the above path. 
+In the case of Linux it will be built at the above path. 
 Just copy the file bech32 at the above path to the ~/cardano-node-1.35.3-linux directory 
 
 ```
 cp ~/cardano-src/bech32/dist-newstyle/build/x86_64-linux/ghc-8.10.7/bech32-1.1.2/x/bech32/build/bech32/bech32 ~/cardano-node-1.35.3-linux/
 ```
+
 To test the bech32 executable, run the below command
 ```
-cd ~/cardano-node-1.35.3-linux/
+cd ~/cardano-node-1.35.3-linux 
 ./bech32 --version
 
 1.1.2
 ```
 
-to test it's functionality, try the below command
+
+## Mac M1 cabal build all output 
+```
+/x/bech32/build/bech32/bech32-tmp/Paths_bech32.o )
+[2 of 2] Compiling Main             ( app/Main.hs, /Users/Bharat/cardano-src/bech32/dist-newstyle/build/aarch64-osx/ghc-8.10.7/bech32-1.1.2/x/bech32/build/bech32/bech32-tmp/Main.o )
+Linking /Users/Bharat/cardano-src/bech32/dist-newstyle/build/aarch64-osx/ghc-8.10.7/bech32-1.1.2/x/bech32/build/bech32/bech32 ...
+
+```
+
+In the case of MacOS it will be built at the above path. 
+Just copy the file bech32 at the above path to the ~/cardano-node-1.35.3-macos directory 
+
+```
+cp /Users/Bharat/cardano-src/bech32/dist-newstyle/build/aarch64-osx/ghc-8.10.7/bech32-1.1.2/x/bech32/build/bech32/bech32 ~/cardano-node-1.35.3-macos/
+```
+### To test the bech32 executable, run the below command
+```
+cd ~/cardano-node-1.35.3-macos 
+./bech32 --version
+
+1.1.2
+```
+
+
+### To further test it's functionality, try the below command
 
 ```
 bech32 <<< addr_test1qq6akcrjga7dd60h6svq705merqj5rr84dsrxm2gf97xdl7nemt3d4aqtgftld0y8mc07k96d8jwvfm8agp2f7sfkxhs848jmd
