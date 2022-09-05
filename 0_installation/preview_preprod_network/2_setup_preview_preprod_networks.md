@@ -74,19 +74,26 @@ function submit() { cardano-cli transaction submit --tx-file $1 $TESTNET ;}
 
 ```
 
-At the prompt, type the command below and hit ENTER
+## Installation complete! Now to run the cardano-node, just 
+## restart the terminal (or run source ~/.bashrc (or .zshrc) 
+
+
+
+## To start the cardano-node in preview network , type the command below and hit ENTER
 ```
 previewnode
+```
+## OR
+## To start the cardano-node in prerod network , type the command below and hit ENTER
 
-OR
-
+```
 preprodnode
 ```
 
 NOTE: If you use Preprod, **you can only submit alonzo-era transactions**. In Preview, you can submit babbage era txs, but **testnet.cardanoscan.io will not show your transactions**.
 
 
-
+## How to deal with common errors.
 
 
 ### if after an improper shut-down, you get the below error
@@ -101,12 +108,14 @@ then either restart the system or kill the cardano-node process (not recommended
 sudo killall cardano-node
 ```
 
-After this kind of an improper shutdown, you might need to delete all the files in the /testnet/db/preview or /testnet/db/preprod folder and resync the database 
+### After this kind of an improper shutdown, you might need to delete all the files in the /testnet/db/preview or /testnet/db/preprod folder and resync the database 
 
-For preview network
+For preview network (
+### NOTE: use the rm -rf command with care as if it is run in the wrong directory, it can delete important files
+### Ensure that you only run it within the testnet/db/.. folder
 ```
 cd $TESTNET/db/preview
-rm -rf ./*
+rm -rf ./* 
 rm -rf ./.*
 ```
 For preprod network
