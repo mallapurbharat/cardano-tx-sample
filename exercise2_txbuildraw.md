@@ -22,7 +22,7 @@ To create a transaction in the shelley era onwards, we need to follow this proce
 
 
 **TESTNET ID**
-save the environment variable TESTNET=--testnet-magic 1097911063
+save the environment variable TESTNET=--testnet-magic 1 / OR 2 / OR 1097911063 ( based upon network)
 
 **Protocol parameters**
 Query and save the parameters in **protocolparams.json**
