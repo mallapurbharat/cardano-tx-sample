@@ -1,3 +1,6 @@
+Refer https://github.com/input-output-hk/cardano-ledger/blob/master/eras/alonzo/test-suite/cddl-files/alonzo.cddl for alonzo CBOR CDDL
+
+
 # Transaction Binary Format
 
 ## Notes
