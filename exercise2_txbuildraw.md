@@ -79,15 +79,16 @@ For example:
 
 **Save the return balance to an environment variable**
 This should be understood as (SUM OF INPUT UTXOs) - (SUM OF OUTPUT UTXOs) - Fee
-
-    BALANCE=$(expr 750000000 - $FEE)
-
+In this case Input - sent amount - fee = 1000,000,000 lovelace - 250,000,000 lovelace - 167965
+```
+    BALANCE=$(expr 1000000000 - 250000000 - $FEE)
+```
 **Determine the validity interval**
 
 When building and submitting a transaction in the shelley era you need to check the current tip of the blockchain, for example, if the tip is slot 4000, you should set the invalid-hereafter to (4000 + N slots), so that you have enough time to build and submit a transaction. Submitting a transaction with a validity interval set in the past would result in a tx error.
-
+```
     cardano-cli query tip $TESTNET 
-
+```
 Look for the value of `SlotNo`
 
     {
@@ -100,15 +101,16 @@ Look for the value of `SlotNo`
 Therefore, if N = 600 slots (10 minutes)
 
 **save this into an environment variable called VALIDTILL**
-
+```
     VALIDTILL=$(expr 26633911 + 600)    
-    echo $VALIDTILL    
-    26634511
+```
+**echo $VALIDTILL    
+26634511**
 
 **Build the transaction**
 
 This time we include all the parameters:
-
+```
     cardano-cli transaction build-raw \
     --babbage-era \
     --tx-in $UTXO1 \
@@ -117,24 +119,27 @@ This time we include all the parameters:
     --invalid-hereafter $VALIDTILL \
     --fee $FEE \
     --out-file tx.raw
-
+```
 **Signing**
 
 A transaction must prove that it has the right to spend its inputs. In the most common case, this means that a transaction must be signed by the signing keys belonging to the payment addresses of the inputs. If a transaction contains certificates, it must additionally be signed by somebody with the right to issue those certificates. For example, a stake address registration certificate must be signed by the signing key of the corresponding stake key pair.
 
+```
     cardano-cli transaction sign \
     --tx-body-file tx.raw \
     --signing-key-file addr1.skey \
     $TESTNET \
     --out-file tx.signed
+```
 
 **Submit**
-
+```
     cardano-cli transaction submit \
     --tx-file tx.signed \
     $TESTNET
-
+```
 **Get the transaction hash**
-
+```
     cardano-cli transaction txid --tx-file tx.signed
-    09e9d3223a30d4c45e9db26d2a97bb1afd0ffc36c5ed6888e2332bc9483a2a74
+```
+**09e9d3223a30d4c45e9db26d2a97bb1afd0ffc36c5ed6888e2332bc9483a2a74**
