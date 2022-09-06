@@ -143,3 +143,8 @@ A transaction must prove that it has the right to spend its inputs. In the most 
     cardano-cli transaction txid --tx-file tx.signed
 ```
 **09e9d3223a30d4c45e9db26d2a97bb1afd0ffc36c5ed6888e2332bc9483a2a74**
+
+
+## FUN ACTIVITY: Manually calculate the actual tx fee from the protocol parameters and the formula txFeeFixed + (txFeePerByte * TxSizeInBytes)
+## and compare it to the fee calculated by the cardano-cli tool!
+### Hint: Take the CBOR Hex, and calculate the size in bytes given that one hex digit is 4 bits, so two hex digits is 1 byte
