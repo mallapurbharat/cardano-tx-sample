@@ -44,7 +44,7 @@ Number 1, 3, and 4 will be defined in a so-called monetary policy script, wherea
 For this guide, we will use:
 
 1. What will be the name of my custom token(s)?  
---> We are going to call `Testtoken` and `SecondTesttoken`
+--> We are going to call `Testtoken`
 2. How many do I want to mint?  
 --> 10000000 (10M `Testtoken`)
 3. Will there be a time constraint for interaction (minting or burning token?)  
@@ -59,7 +59,7 @@ We also will be using the testnet. The only difference between minting native as
 <b>Since cardano-cli version 1.31.0, token names must be base16 encoded </b>.  So here, we use the xxd tool to encode the token names.
 
 ```bash
-testnet="--testnet-magic 1097911063"
+testnet="--testnet-magic 2"
 tokenname1=$(echo -n "Testtoken" | xxd -ps | tr -d '\n')
 tokenamount="10000000"
 output="0"
@@ -95,6 +95,9 @@ mkdir ./tokens
 cd tokens/
 ```
 ### NOTE: This guide assumes that you already have addresses with sufficient balance.
+```bash
+address=<INSERT PAYMENT ADDRESS HERE>
+```
 
 ## Minting native assets
 
@@ -187,8 +190,7 @@ b35a4ba9ef3ce21adcd6879d08553642224304704d206c74d3ffb3e6eed3ca28     0        10
 Since we need each of those values in our transaction, we will store them individually in a corresponding variable.
 
 ```bash
-txhash="insert your txhash here"
-txix="insert your TxIx here"
+utxoin="insert your txhash here followed by # followed by index of the utxo"
 funds="insert Amount here"
 policyid=$(cat policy/policyID)
 ```
@@ -196,16 +198,16 @@ policyid=$(cat policy/policyID)
 For our fictional example, this would result in the following output - <b>please adjust your values accordingly</b>:
 
 ```bash
-$ utxoin="b35a4ba9ef3ce21adcd6879d08553642224304704d206c74d3ffb3e6eed3ca28#0"
-$ funds="1000000000"
-$ policyid=$(cat policy/policyID)
+utxoin="b35a4ba9ef3ce21adcd6879d08553642224304704d206c74d3ffb3e6eed3ca28#0"
+funds="1000000000"
+policyid=$(cat policy/policyID)
 ```
 Also, transactions only used to calculate fees must still have a fee set, though it doesn't have to be exact.  
 The calculated fee will be included *the second time* this transaction is built (i.e. the transaction to sign and submit).  
 This first time, only the fee parameter *length* matters, so here we choose a maximum value 
 
 ```bash
-$ fee="300000"
+fee="300000"
 ```
 
 Now we are ready to build the first transaction to calculate our fee and save it in a file called <i>matx.raw</i>.
@@ -282,6 +284,8 @@ Just be sure to reference the correct filename in upcoming commands. I chose to 
 Based on this raw transaction we can calculate the minimal transaction fee and store it in the variable <i>$fee</i>. We get a bit fancy here and only store the value so we can use the variable for terminal based calculations:
 
 ```bash
+cardano-cli query protocol-parameters $TESTNET --out-file protocol.json
+
 fee=$(cardano-cli transaction calculate-min-fee --tx-body-file matx.raw --tx-in-count 1 --tx-out-count 1 --witness-count 2 $testnet --protocol-params-file protocol.json | cut -d " " -f1)
 ```
 
