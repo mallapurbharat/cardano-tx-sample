@@ -94,9 +94,12 @@ We will start with a clean slate. So let's make a new directory and navigate int
 mkdir ./tokens
 cd tokens/
 ```
-### NOTE: This guide assumes that you already have addresses with sufficient balance.
+### NOTE: This guide assumes that you already have addresses with sufficient balance. Save the address in an enviroment variable as below
+
 ```bash
+
 address=<INSERT PAYMENT ADDRESS HERE>
+
 ```
 
 ## Minting native assets
