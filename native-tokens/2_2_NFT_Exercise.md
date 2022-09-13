@@ -168,7 +168,7 @@ Here’s an example of the metadata.json which we’ll use for this guide:
                 "description": "This is my first NFT thanks to the Cardano foundation",
                 "name": "Cardano foundation NFT guide token",
                 "id": 1,
-                "image": ""
+                "image": <insert ipfs document hash here in ipfs:// format>
               }
             }
         }
