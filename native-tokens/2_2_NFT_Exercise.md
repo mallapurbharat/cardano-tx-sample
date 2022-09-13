@@ -23,7 +23,7 @@ ipfs_hash="please insert your ipfs hash here"
 ```
 :::note
 The IPFS hash is a key requirement and can be found once you upload your image to IPFS. Here's an example of how the IPFS looks like when an image is uploaded in [pinata](https://pinata.cloud/)
-![img](../../static/img/nfts/pinata_pin.PNG)
+![img](https://imgur.com/a/W4Ob2iI)
 :::
 
 
