@@ -59,7 +59,6 @@ We also will be using the testnet. The only difference between minting native as
 <b>Since cardano-cli version 1.31.0, token names must be base16 encoded </b>.  So here, we use the xxd tool to encode the token names.
 
 ```bash
-testnet="--testnet-magic 2"
 tokenname1=$(echo -n "Testtoken" | xxd -ps | tr -d '\n')
 tokenamount="10000000"
 output="0"
@@ -72,7 +71,7 @@ We will be using this technique of setting variables along the way to make it ea
 We also want to check if our Node is up to date. To do that, we check the current epoch/block and compare it to the current value displayed in the [Cardano Explorer for the testnet](https://explorer.cardano-testnet.iohkdev.io/en).
 
 ```bash
-cardano-cli query tip $testnet
+cardano-cli query tip $TESTNET
 ```
 
 Should give you an output like this
@@ -179,7 +178,7 @@ Before we start, we will again need some setup to make the transaction building 
 First, query your payment address and take note of the different values present.
 
 ```bash
-cardano-cli query utxo --address $address $testnet
+cardano-cli query utxo --address $address $TESTNET
 ```
 
 Your output should look something like this (fictional example):
@@ -289,7 +288,7 @@ Based on this raw transaction we can calculate the minimal transaction fee and s
 ```bash
 cardano-cli query protocol-parameters $TESTNET --out-file protocol.json
 
-fee=$(cardano-cli transaction calculate-min-fee --tx-body-file matx.raw --tx-in-count 1 --tx-out-count 1 --witness-count 2 $testnet --protocol-params-file protocol.json | cut -d " " -f1)
+fee=$(cardano-cli transaction calculate-min-fee --tx-body-file matx.raw --tx-in-count 1 --tx-out-count 1 --witness-count 2 $TESTNET --protocol-params-file protocol.json | cut -d " " -f1)
 ```
 
 Remember, the transaction input and the output of ada must be equal, or otherwise, the transaction will fail. There can be no leftovers.
@@ -317,7 +316,7 @@ Transactions need to be signed to prove the authenticity and ownership of the po
 cardano-cli transaction sign  \
 --signing-key-file payment.skey  \
 --signing-key-file policy/policy.skey  \
-$testnet --tx-body-file matx.raw  \
+$TESTNET --tx-body-file matx.raw  \
 --out-file matx.signed
 ```
 
@@ -326,13 +325,13 @@ $testnet --tx-body-file matx.raw  \
 
 Now we are going to submit the transaction, therefore minting our native assets:
 ```bash
-cardano-cli transaction submit --tx-file matx.signed $testnet
+cardano-cli transaction submit --tx-file matx.signed $TESTNET
 ```
 
 Congratulations, we have now successfully minted our own token.
 After a couple of seconds, we can check the output address
 ```bash
-cardano-cli query utxo --address $address $testnet
+cardano-cli query utxo --address $address $TESTNET
 ```
 
 and should see something like this (fictional example):
@@ -404,7 +403,7 @@ cardano-cli transaction build-raw  \
 Again we are going to calculate the fee and save it in a variable.
 
 ```bash
-fee=$(cardano-cli transaction calculate-min-fee --tx-body-file rec_matx.raw --tx-in-count 1 --tx-out-count 2 --witness-count 1 $testnet --protocol-params-file protocol.json | cut -d " " -f1)
+fee=$(cardano-cli transaction calculate-min-fee --tx-body-file rec_matx.raw --tx-in-count 1 --tx-out-count 2 --witness-count 1 $TESTNET --protocol-params-file protocol.json | cut -d " " -f1)
 ```
 
 As stated above, we need to calculate the leftovers that will get sent back to our address.
@@ -428,12 +427,12 @@ cardano-cli transaction build-raw  \
 
 Sign it:
 ```bash
-cardano-cli transaction sign --signing-key-file payment.skey $testnet --tx-body-file rec_matx.raw --out-file rec_matx.signed
+cardano-cli transaction sign --signing-key-file payment.skey $TESTNET --tx-body-file rec_matx.raw --out-file rec_matx.signed
 ```
 
 Send it:
 ```bash
-cardano-cli transaction submit --tx-file rec_matx.signed $testnet
+cardano-cli transaction submit --tx-file rec_matx.signed $TESTNET
 ```
 
 After a few seconds, you, the receiver, should have your tokens. For this example, a Daedalus testnet wallet is used.
@@ -451,7 +450,7 @@ If you've followed this guide up to this point, you should be familiar with the 
 Set everything up and check our address:
 
 ```bash
-cardano-cli query utxo --address $address $testnet
+cardano-cli query utxo --address $address $TESTNET
 ```
 
 :::note Since we've already sent tokens away, we need to adjust the amount of Testtoken we are going to send.
@@ -491,7 +490,7 @@ As usual, we need to calculate the fee.
 To make a better differentiation, we named the variable <i>burnfee</i>:
 
 ```bash
-burnfee=$(cardano-cli transaction calculate-min-fee --tx-body-file burning.raw --tx-in-count 1 --tx-out-count 1 --witness-count 2 $testnet --protocol-params-file protocol.json | cut -d " " -f1)
+burnfee=$(cardano-cli transaction calculate-min-fee --tx-body-file burning.raw --tx-in-count 1 --tx-out-count 1 --witness-count 2 $TESTNET --protocol-params-file protocol.json | cut -d " " -f1)
 ```
 
 Calculate the correct output value
@@ -517,7 +516,7 @@ cardano-cli transaction build-raw \
  cardano-cli transaction sign  \
 --signing-key-file payment.skey  \
 --signing-key-file policy/policy.skey  \
-$testnet  \
+$TESTNET  \
 --tx-body-file burning.raw  \
 --out-file burning.signed
 ```
@@ -525,13 +524,13 @@ $testnet  \
 Send it:
 
 ```bash
-cardano-cli transaction submit --tx-file burning.signed $testnet
+cardano-cli transaction submit --tx-file burning.signed $TESTNET
 ```
 
 Check your address: 
 
 ```bash
-cardano-cli query utxo --address $address $testnet
+cardano-cli query utxo --address $address $TESTNET
 ```
 
 You should now have 5000 tokens less than before:
