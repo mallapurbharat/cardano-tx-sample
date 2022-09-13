@@ -38,7 +38,7 @@ cardano-cli address key-gen --verification-key-file payment.vkey --signing-key-f
 Those two keys can now be used to generate an address.
 
 ```bash
-cardano-cli address build --payment-verification-key-file payment.vkey --out-file payment.addr --mainnet
+cardano-cli address build --payment-verification-key-file payment.vkey --out-file payment.addr $TESTNET
 ```
 
 We will save our address hash in a variable called address.
@@ -55,7 +55,7 @@ So make sure the address you are going to use as the input for the minting trans
 For our example, the newly generated address was funded with 10 ada.
 
 ```bash
-cardano-cli query utxo --address $address --mainnet
+cardano-cli query utxo --address $address $TESTNET
 ```
 
 You should see something like this.
@@ -69,7 +69,7 @@ You should see something like this.
 For our transaction calculations, we need some of the current protocol parameters. The parameters can be saved in a file called `protocol.json` with this command:
 
 ```bash
-cardano-cli query protocol-parameters --mainnet --out-file protocol.json
+cardano-cli query protocol-parameters $TESTNET --out-file protocol.json
 ```
 
 ### Creating the policyID
@@ -126,7 +126,7 @@ cardano-cli address key-hash --payment-verification-key-file policy/policy.vkey
 
 To calculate the correct slot, query the current slot and add 10000 to it:
 ```bash
-cardano-cli query tip --mainnet
+cardano-cli query tip $TESTNET
 ```
 
 Make a new file called policy.script in the policy folder 
@@ -199,7 +199,7 @@ Before we start, we will again need some setup to make the transaction building 
 Query your payment address and take note of the different values present.
 
 ```bash
-cardano-cli query utxo --address $address --mainnet
+cardano-cli query utxo --address $address $TESTNET
 ```
 
 Your output should look something like this (fictional example):
@@ -298,7 +298,7 @@ The signed transaction will be saved in a new file called <i>matx.signed</i> ins
 
 Now we are going to submit the transaction, therefore minting our native assets:
 ```bash
-cardano-cli transaction submit --tx-file matx.signed --mainnet
+cardano-cli transaction submit --tx-file matx.signed $TESTNET
 ```
 
 Congratulations, we have now successfully minted our own token.
