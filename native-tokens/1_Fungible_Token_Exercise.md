@@ -18,7 +18,6 @@ We'll be working in a new directory. Here is an overview of every file we will b
 ├── burning.signed                 # Signed transaction to burn token
 ├── matx.raw                       # Raw transaction to mint token
 ├── matx.signed                    # Signed transaction to mint token
-├── metadata.json                  # Metadata to specify NFT attributes
 ├── payment.addr                   # Address to send / receive 
 ├── payment.skey                   # Payment signing key
 ├── payment.vkey                   # Payment verification key
