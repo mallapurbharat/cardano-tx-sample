@@ -119,7 +119,7 @@ nano policy/policy.script
     },
     {
       "type": "sig",
-      "keyHash": "insert keyHash here"
+      "keyHash": <insert keyHash here>
     }
   ]
 }
