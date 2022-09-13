@@ -12,9 +12,8 @@ We will set important values in a more readable variable for better readability 
 Since cardano-node version **1.31.0 the token name should be in hex format**. 
 We will set the variable $realtokenname (real name in utf-8) and then convert it to $tokenname (name in hex format). 
 
-### NOTE: set the testnet id to preview / preprod as required.
+### NOTE: set the $TESTNET id to preview / preprod as required.
 ```bash
-testnet="--testnet-magic 2" 
 realtokenname="NFT1"
 tokenname=$(echo -n $realtokenname | xxd -b -ps -c 80 | tr -d '\n')
 tokenamount="1"
@@ -229,7 +228,7 @@ If you're unsure, check if all of the other needed variables for the transaction
 
 ```bash
 echo $era
-echo $testnet
+echo $TESTNET
 echo $fee
 echo $address
 echo $output
@@ -255,7 +254,7 @@ $era \
 --metadata-json-file metadata.json  \
 --invalid-hereafter $slotnumber \
 --witness-override 2 \
---out-file matx.raw $testnet
+--out-file matx.raw $TESTNET
 
 ```
 
@@ -289,7 +288,7 @@ Sign the transaction
 cardano-cli transaction sign  \
 --signing-key-file payment.skey  \
 --signing-key-file policy/policy.skey  \
-$testnet --tx-body-file matx.raw  \
+$TESTNET --tx-body-file matx.raw  \
 --out-file matx.signed
 ```
 
@@ -305,7 +304,7 @@ cardano-cli transaction submit --tx-file matx.signed --mainnet
 Congratulations, we have now successfully minted our own token.
 After a couple of seconds, we can check the output address
 ```bash
-cardano-cli query utxo --address $address $testnet
+cardano-cli query utxo --address $address $TESTNET
 ```
 
 and should see something like this:
@@ -344,7 +343,7 @@ $era \
 --change-address $address \
 --invalid-hereafter $slot \
 --witness-override 2 \
---out-file burning.raw $testnet
+--out-file burning.raw $TESTNET
 ```
 
 :::note
@@ -354,11 +353,11 @@ The minting parameter is now called with a negative value, therefore destroying 
 
 Sign the transaction.
 ```bash
-cardano-cli transaction sign  --signing-key-file payment.skey  --signing-key-file policy/policy.skey $testnet  --tx-body-file burning.raw --out-file burning.signed
+cardano-cli transaction sign  --signing-key-file payment.skey  --signing-key-file policy/policy.skey $TESTNET  --tx-body-file burning.raw --out-file burning.signed
 ```
 Full send.
 ```bash
-cardano-cli transaction submit --tx-file burning.signed $testnet
+cardano-cli transaction submit --tx-file burning.signed $TESTNET
 ```
 
 Congrats! You've completed the NFT exercises!
