@@ -47,7 +47,7 @@ For this guide, we will use:
 2. How many do I want to mint?  
 --> 10000000 (10M `Testtoken`)
 3. Will there be a time constraint for interaction (minting or burning token?)  
----> No (we will, however, when making NFTs), we want to mint and burn them however we like.
+---> No (We will discuss this in the next exercise for minting an NFT)
 4. Who should be able to mint them?  
 --> only one signature (which we possess) should be able to sign the transaction and therefore be able to mint the token
 
