@@ -96,7 +96,17 @@ Instead of only defining a single signature (as we did in the native asset minti
 1. Only one signature allowed
 2. No further minting or burning of the asset allowed after 10000 slots have passed since the transaction was made
 
-For this specific purpose `policy.script` file which will look like this:
+
+### Make a new file called policy.script in the policy folder 
+```bash
+touch policy/policy.script
+```
+Paste the JSON from above, populated with your `keyHash` and your `slot` number into it
+```bash
+nano policy/policy.script
+```
+
+`policy.script` file which will look like this:
 
 ```json
 {
@@ -115,44 +125,29 @@ For this specific purpose `policy.script` file which will look like this:
 }
 ```
 
-As you can see, we need to adjust two values here, the `slot` number as well as the `keyHash`.
-### NOTE: 
-**For this exercise, please set the key hash and correct slot manually.**
-
-To generate the `keyHash`, use the following command:
-```bash
-cardano-cli address key-hash --payment-verification-key-file policy/policy.vkey
-```
-
-To calculate the correct slot, query the current slot and add 10000 to it:
-```bash
-cardano-cli query tip $TESTNET
-```
-
-Make a new file called policy.script in the policy folder 
-```bash
-touch policy/policy.script
-```
-Paste the JSON from above, populated with your `keyHash` and your `slot` number into it
-```bash
-nano policy/policy.script
-```
-
-:::note
-Be aware the slot number is defined as an integer and therefore needs no double quotation marks, whereas the `keyHash` is defined as a string and needs to be wrapped in double quotation marks.
-:::
-
-Please take note of your slot number and save it in a variable.
-
-```bash
-slotnumber="Replace this with your slot number"
-```
-
 And save the location of the script file into a variable as well.
 
 ```bash
 script="policy/policy.script"
 ```
+
+Now as you can see in the above policy script, we need to adjust two values here, the `slot` number as well as the `keyHash`.
+
+### To generate the `keyHash`, use the following command:
+```bash
+cardano-cli address key-hash --payment-verification-key-file policy/policy.vkey
+```
+
+### NOTE: 
+**For this exercise, please set the key hash and correct slot manually.**
+
+To calculate the correct slot, query the current slot and add 10000 to it:
+```bash
+cardano-cli query tip $TESTNET
+```
+:::note
+Be aware the slot number is defined as an integer and therefore needs no double quotation marks, whereas the `keyHash` is defined as a string and needs to be wrapped in double quotation marks.
+:::
 
 The last step is to generate the policyID:
 
