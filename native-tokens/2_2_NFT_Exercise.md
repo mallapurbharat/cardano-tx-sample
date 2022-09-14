@@ -15,7 +15,7 @@ We will set the variable $realtokenname (real name in utf-8) and then convert it
 ### NOTE: set the $TESTNET id to preview / preprod as required.
 ```bash
 realtokenname="NFT1"
-tokenname=$(echo -n $realtokenname | xxd -b -ps -c 80 | tr -d '\n')
+tokenname=$(echo -n $realtokenname | xxd -ps | tr -d '\n')
 tokenamount="1"
 fee="0"
 output="0"
