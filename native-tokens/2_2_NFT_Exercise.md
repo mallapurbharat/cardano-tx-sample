@@ -105,12 +105,14 @@ Instead of only defining a single signature (as we did in the native asset minti
 ```bash
 touch policy/policy.script
 ```
-Paste the JSON from above, populated with your `keyHash` and your `slot` number into it
+Paste the JSON from below, populated with your `keyHash` and your `slot` number into it
+### NOTE: The keyHash has to be escaped with double quotes
+
 ```bash
 nano policy/policy.script
 ```
 
-`policy.script` file which will look like this:
+#### policy.script file contents:
 
 ```json
 {
@@ -139,7 +141,9 @@ Now as you can see in the above policy script, we need to adjust two values here
 
 ### To generate the `keyHash`, use the following command:
 ```bash
+
 cardano-cli address key-hash --payment-verification-key-file policy/policy.vkey
+
 ```
 
 ### NOTE: 
@@ -183,9 +187,10 @@ Here’s an example of the metadata.json which we’ll use for this guide:
 }
 ```
 
-:::note
-Please make sure the image value / IPFS hash is set with the correct protocol pre-fix <i>ipfs://</i>  
-(for example <i>"ipfs://QmRhTTbUrPYEw3mJGGhQqQST9k86v1DPBiTTWJGKDJsVFw"</i>)
+#### Note
+#### Please make sure the image value / IPFS hash is set with the correct protocol prefix of ipfs://
+#### (for example "ipfs://QmRhTTbUrPYEw3mJGGhQqQST9k86v1DPBiTTWJGKDJsVFw")
+#### The ipfs hash must be enclosed in double quotes
 
 
 :::note
