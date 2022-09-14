@@ -19,11 +19,15 @@ tokenname=$(echo -n $realtokenname | xxd -b -ps -c 80 | tr -d '\n')
 tokenamount="1"
 fee="0"
 output="0"
-ipfs_hash="please insert your ipfs hash here"
+ipfs_hash="please insert your image ipfs hash here"
 ```
 :::note
-The IPFS hash is a key requirement and can be found once you upload your image to IPFS. Here's an example of how the IPFS looks like when an image is uploaded in [pinata](https://pinata.cloud/)
+The IPFS hash is a key requirement and can be found once you upload your image to IPFS. 
+Here's an example of how the IPFS looks like when an image is uploaded in [pinata](https://pinata.cloud/)
+### NOTE: the ipfs hash should be prepended with the ipfs:// prefix.
+
 ![img](./emurgoacademy.jpeg)
+
 :::
 
 
@@ -141,9 +145,13 @@ cardano-cli address key-hash --payment-verification-key-file policy/policy.vkey
 ### NOTE: 
 **For this exercise, please set the key hash and correct slot manually.**
 
-To calculate the correct slot, query the current slot and add 10000 to it:
+### To calculate the correct slot, query the current slot and add 10000 to it and save it to slotnumber shell variable:
 ```bash
 cardano-cli query tip $TESTNET
+```
+
+```bash
+slotnumber=$(expr 3154413 + 10000)
 ```
 :::note
 Be aware the slot number is defined as an integer and therefore needs no double quotation marks, whereas the `keyHash` is defined as a string and needs to be wrapped in double quotation marks.
