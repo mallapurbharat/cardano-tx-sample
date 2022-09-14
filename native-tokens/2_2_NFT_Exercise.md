@@ -370,3 +370,4 @@ cardano-cli transaction submit --tx-file burning.signed $TESTNET
 
 Congrats! You've completed the NFT exercises!
 
+### NOTE: When transferring tokens to others, you will need to explicitly create a --tx-out with requisite min-ada-value and the token which you want to transfer. cardano-cli does not deal with this correctly if you use --change-address to try to move the token. You can move remainder Ada value with --change-address however. (refer this https://github.com/input-output-hk/cardano-node/issues/3799)
