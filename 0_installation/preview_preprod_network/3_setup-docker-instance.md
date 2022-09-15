@@ -24,7 +24,7 @@ CONTAINER ID   IMAGE                                     COMMAND        CREATED 
 41b8be9d2b93   inputoutput/cardano-node:1.35.3-configs   "entrypoint"   43 minutes ago   Up 43 minutes             <dreamy_rubin>
 ```
 
-### use the above container name to launch an interactive terminal with bash
+### use the above container name (WITHOUT THE <> ) to launch an interactive terminal with bash
 ```
 docker exec -it <container-name> bash
 ```
