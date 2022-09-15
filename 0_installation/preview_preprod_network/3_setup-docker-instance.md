@@ -52,6 +52,21 @@ foo@bar:$ ctip
 
 Congratulations! You now have a running cardano-node on ANY SYSTEM!
 
+### NOTE: You may see some messages like below (esp. when the node is fully synced and no new blocks are coming in for a short time)
+
+```console
+[9c30af41:cardano.node.ConnectionManager:Info:2019] [2022-09-15 19:14:23.80 UTC] TrConnectionManagerCounters (ConnectionManagerCounters {fullDuplexConns = 0, duplexConns = 2, unidirectionalConns = 0, inboundConns = 0, outboundConns = 2})
+[9c30af41:cardano.node.ConnectionManager:Info:2019] [2022-09-15 19:14:24.03 UTC] TrConnectError (Just 0.0.0.0:3001) 89.58.43.194:19000 Network.Socket.connect: <socket: 51>: does not exist (Connection refused)
+[9c30af41:cardano.node.ConnectionManager:Info:2019] [2022-09-15 19:14:24.03 UTC] TrConnectionManagerCounters (ConnectionManagerCounters {fullDuplexConns = 0, duplexConns = 2, unidirectionalConns = 0, inboundConns = 0, outboundConns = 2})
+[9c30af41:cardano.node.PeerSelection:Info:54] [2022-09-15 19:14:24.03 UTC] TracePromoteColdFailed 50 2 89.58.43.194:19000 160.607736456222s Network.Socket.connect: <socket: 51>: does not exist (Connection refused)
+[9c30af41:cardano.node.ChainDB:Notice:33] [2022-09-15 19:15:01.73 UTC] Chain extended, new tip: a2716eeb33f6a6f3a9892b9298958489c9318dbdb81f18340f7d86c56652d752 at slot 3266101
+[9c30af41:cardano.node.ChainDB:Notice:33] [2022-09-15 19:15:14.79 UTC] Chain extended, new tip: 063631994657365e3d324b25e68fd342761122f2f6ec24ba8e6b655cc8e6daeb at slot 3266114
+[9c30af41:cardano.node.ChainDB:Notice:33] [2022-09-15 19:15:25.75 UTC] Chain extended, new tip: e075e0a9391c3ca0bcacd9443a3abd93d28817ff965964f56c1b5244c9aeaa56 at slot 3266125
+```
+
+Typically you might see some errors like **Network.Socket.connect: <socket: 51>: does not exist (Connection refused)**. 
+But as long as the ctip command **shows some progress in the slots every minute or so**, you are still connected to the network and good to go!
+
 
 ### NOTE: In case you face any troubles with the docker containers, you might need to clean them and reinstall again cleanly using the above steps.
 First exit the docker cardano-node instance by hitting CTRL+C
