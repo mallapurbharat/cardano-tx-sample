@@ -14,11 +14,11 @@ docker volume create cardano-node-ipc
 
 ### run the below command at the terminal and let it run continuously without exiting
 ### What we are configuring:
-###    - naming the container as cardano-node
-###    - mounting a folder ~/testnet/exercises which we can use to create various exercise files in our host and map them into the docker container to run them
-###    - launching the preview network (other option is preprod)
-###    - storing all data in cardano-node-data volume
-###    - creating the IPC node socket in cardano-node-ipc
+- naming the container as cardano-node
+- mounting a folder ~/testnet/exercises which we can use to create various exercise files in our host and map them into the docker container to run them
+- launching the preview network (other option is preprod)
+- storing all data in cardano-node-data volume
+- creating the IPC node socket in cardano-node-ipc volume
     
 ```
 docker run --name cardano-node --mount type=bind,source="~/testnet/exercises/",target=/exercises -e NETWORK=preview -v cardano-node-ipc:/ipc -v cardano-node-data:/data inputoutput/cardano-node:1.35.3-configs
