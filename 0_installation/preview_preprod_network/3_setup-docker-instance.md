@@ -80,7 +80,10 @@ docker exec -it cardano-node bash
 source /data/.bashrc
 ```
 
+## That's it folks! Have fun!
 
+
+## TROUBLESHOOTING ERRORS
 ### NOTE: You may see some messages like below (esp. when the node is fully synced and no new blocks are coming in for a short time)
 
 ```console
