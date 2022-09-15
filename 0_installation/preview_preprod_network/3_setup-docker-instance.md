@@ -64,7 +64,9 @@ Congratulations! You now have a running cardano-node on ANY SYSTEM!
 [9c30af41:cardano.node.ChainDB:Notice:33] [2022-09-15 19:15:25.75 UTC] Chain extended, new tip: e075e0a9391c3ca0bcacd9443a3abd93d28817ff965964f56c1b5244c9aeaa56 at slot 3266125
 ```
 
-Typically you might see some errors like **Network.Socket.connect: <socket: 51>: does not exist (Connection refused)**. 
+Typically you might see some errors like 
+   **Network.Socket.connect: <socket: 51>: does not exist (Connection refused)**. 
+   **Network.Socket.connect: <socket: 31>: does not exist (No route to host)**
 But as long as the ctip command **shows some progress in the slots every minute or so**, you are still connected to the network and good to go!
 
 
