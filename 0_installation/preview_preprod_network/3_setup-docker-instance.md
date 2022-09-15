@@ -1,4 +1,4 @@
-## IF NOTHING ELSE WORKS (for example on a Mac M1!) you can follow the below steps to run a docker instance of the cardano-node and go on with your exercises as usual
+## IF NOTHING ELSE WORKS (for example on a Mac M1!) you can follow the below steps to run a docker instance of the cardano-node ON THE PREVIEW NETWORK and go on with your exercises as usual
 
 ### First download the docker instance
 
