@@ -6,22 +6,34 @@
 docker image pull inputoutput/cardano-node:1.35.3-configs
 ```
 
-### run the below command at the terminal and let it run continuously without exiting
+### Create local cardano-node-data and cardano-node-ipc volumes:
 ```
-docker run --name cardano-node -v /data -e NETWORK=preview inputoutput/cardano-node:1.35.3-configs
+docker volume create cardano-node-data
+docker volume create cardano-node-ipc
 ```
 
-### use the above container name (WITHOUT THE <> ) to launch an interactive terminal with bash
+### run the below command at the terminal and let it run continuously without exiting
+### What we are configuring:
+###    - naming the container as cardano-node
+###    - mounting a folder ~/testnet/exercises which we can use to create various exercise files in our host and map them into the docker container to run them
+###    - launching the preview network (other option is preprod)
+###    - storing all data in cardano-node-data volume
+###    - creating the IPC node socket in cardano-node-ipc
+    
+```
+docker run --name cardano-node --mount type=bind,source="~/testnet/exercises/",target=/exercises -e NETWORK=preview -v cardano-node-ipc:/ipc -v cardano-node-data:/data inputoutput/cardano-node:1.35.3-configs
+```
+
+### Copy a basic .bashrc file (_use the .bashrc file in the same github path_)  to the docker container to configure our bash shell with some comforts
+
+```
+docker cp ./.bashrc cardano-node:/.bashrc
+```
+
+### use the above container name (cardano-node ) to launch an interactive terminal with bash
 ```
 docker exec -it cardano-node bash
 ```
-
-### In the second terminal, run the below command as it is at the prompt _FOR THE FIRST TIME ONLY_
-### NOTE: Change the --testnet-magic 2 to --testnet magic 1 for preprod network if required
-```
-echo -e 'export CARDANO_NODE_SOCKET_PATH="/ipc/node.socket"\nexport TESTNET="--testnet-magic 2"\nalias ctip="cardano-cli query tip $TESTNET"' > .bashrc
-```
-
 
 ### now you can run the alias 'ctip' and all other cardano-cli commands comfortably!!
 
@@ -37,3 +49,4 @@ foo@bar:$ ctip
     "syncProgress": "25.32"
 }
 ```
+
