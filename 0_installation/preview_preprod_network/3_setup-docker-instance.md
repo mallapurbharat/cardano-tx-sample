@@ -10,6 +10,7 @@ docker image pull inputoutput/cardano-node:1.35.3-configs
 ```
 docker volume create cardano-node-data
 docker volume create cardano-node-ipc
+docker volume create cardano-node-root
 ```
 
 ### run the below command at the terminal and let it run continuously without exiting
@@ -19,21 +20,27 @@ docker volume create cardano-node-ipc
 - launching the preview network (other option is preprod)
 - storing all data in cardano-node-data volume
 - creating the IPC node socket in cardano-node-ipc volume
+- creating a root volume to store the .bashrc and other root files
     
 ```
-docker run --name cardano-node --mount type=bind,source="/home/bharat/testnet/exercises/",target=/exercises -e NETWORK=preview -v cardano-node-ipc:/ipc -v cardano-node-data:/data inputoutput/cardano-node:1.35.3-configs
+docker run --name cardano-node --mount type=bind,source="/home/bharat/testnet/exercises/",target=/exercises -e NETWORK=preview -v cardano-node-root:/ -v cardano-node-ipc:/ipc -v cardano-node-data:/data inputoutput/cardano-node:1.35.3-configs
 ```
 
 ### Copy a basic .bashrc file (_use the .bashrc file in the same github path_)  to the docker container to configure our bash shell with some comforts
 
 ```
-docker cp ./.bashrc cardano-node:/.bashrc
+docker cp ./.bashrc cardano-node:/data/.bashrc
 ```
 
 ### use the above container name (cardano-node ) to launch an interactive terminal with bash
 ```
 docker exec -it cardano-node bash
 ```
+run the command as below to load the .bashrc file
+```
+source /data/.bashrc
+```
+This will load the .bashrc file from the persistent data folder (mapped to the cardano-node-data volume)
 
 ### now you can run the alias 'ctip' and all other cardano-cli commands comfortably!!
 
@@ -51,6 +58,28 @@ foo@bar:$ ctip
 ```
 
 Congratulations! You now have a running cardano-node on ANY SYSTEM!
+
+
+## NOTE: When you want to close the node instance, first exit the node using CTRL+C, then use the following commands to stop the instance properly.
+
+```
+docker stop cardano-node
+```
+This is ok because the cardano-node-data and cardano-node-ipc volumes are still present, and can be used in the next launch
+
+To launch the container again do the following steps (yes, all the arguments used in the first launch will be saved so no need to worry:
+
+```
+docker start -a cardano-node
+```
+
+### run the second shell 
+```
+docker exec -it cardano-node bash
+
+source /data/.bashrc
+```
+
 
 ### NOTE: You may see some messages like below (esp. when the node is fully synced and no new blocks are coming in for a short time)
 
@@ -81,5 +110,6 @@ docker rm cardano-node
 docker volume rm  cardano-node-data cardano-node-ipc
 docker rmi inputoutput/cardano-node:1.35.3-configs
 ```
+
 
 
