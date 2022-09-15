@@ -8,25 +8,12 @@ docker image pull inputoutput/cardano-node:1.35.3-configs
 
 ### run the below command at the terminal and let it run continuously without exiting
 ```
-docker run -v /data -e NETWORK=preview inputoutput/cardano-node:1.35.3-configs
-```
-
-### now, in A NEW TERMINAL INSTANCE,  find the running container name or id 
-```
-docker container ls
-```
-
-### You might see output like below (note the container name under NAMES)
-```console
-foo@bar:$ docker container ls
-
-CONTAINER ID   IMAGE                                     COMMAND        CREATED          STATUS          PORTS     NAMES
-41b8be9d2b93   inputoutput/cardano-node:1.35.3-configs   "entrypoint"   43 minutes ago   Up 43 minutes             <dreamy_rubin>
+docker run --name cardano-node -v /data -e NETWORK=preview inputoutput/cardano-node:1.35.3-configs
 ```
 
 ### use the above container name (WITHOUT THE <> ) to launch an interactive terminal with bash
 ```
-docker exec -it <container-name> bash
+docker exec -it cardano-node bash
 ```
 
 ### In the second terminal, run the below command as it is at the prompt _FOR THE FIRST TIME ONLY_
