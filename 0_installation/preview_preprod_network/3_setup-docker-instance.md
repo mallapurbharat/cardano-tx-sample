@@ -23,7 +23,7 @@ docker volume create cardano-node-root
 - creating a root volume to store the .bashrc and other root files
     
 ```
-docker run --name cardano-node --mount type=bind,source="/home/bharat/testnet/exercises/",target=/exercises -e NETWORK=preview -v cardano-node-root:/ -v cardano-node-ipc:/ipc -v cardano-node-data:/data inputoutput/cardano-node:1.35.3-configs
+docker run --name cardano-node --mount type=bind,source="/home/bharat/testnet/exercises/",target=/exercises -e NETWORK=preview -v cardano-node-ipc:/ipc -v cardano-node-data:/data inputoutput/cardano-node:1.35.3-configs
 ```
 
 ### Copy a basic .bashrc file (_use the .bashrc file in the same github path_)  to the docker container to configure our bash shell with some comforts
