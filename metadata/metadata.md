@@ -83,7 +83,6 @@ cardano-cli transaction calculate-min-fee \
 --tx-in-count 1 \
 --tx-out-count 1 \
 --witness-count 1 \
---byron-witness-count 0 \
 --testnet-magic 1097911063 \
 --protocol-params-file protocol.json
 ```
