@@ -193,8 +193,7 @@ Here’s an example of the metadata.json which we’ll use for this guide:
 #### The ipfs hash must be enclosed in double quotes
 
 
-:::note
-The third element in the hierarchy needs to have the same name as our NFT native asset.
+### Note: The third element (NFT1 in this case) in the hierarchy needs to have the same name as our Token asset name "NFT1" when we are minting it using cardano-cli transaction build.
 :::
 
 Save this file as `metadata.json`. 
