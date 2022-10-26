@@ -137,9 +137,12 @@ Blockfrost provides an API to access the Cardano blockchain fast and easily.
 
 To retrieve metadata using Blockfrost, we call a specific endpoint for transaction metadata that they provide.
 
-** Query key 20220101 Metadata **
+Cardano preprod	https://cardano-preprod.blockfrost.io/api/v0
+Cardano preview	https://cardano-preview.blockfrost.io/api/v0
 
-    curl -H 'project_id: <PUT_API_KEY_HERE>' https://cardano-testnet.blockfrost.io/api/v0/metadata/txs/labels/20220101 | jq
+** Query key 20220101 Metadata on Preview network**
+
+    curl -H 'project_id: <PUT_API_KEY_HERE>' https://cardano-preview.blockfrost.io/api/v0/metadata/txs/labels/20220101 | jq
     
 You should see something like this:
 
