@@ -15,24 +15,23 @@ UPDATE your .bashrc / .zshrc file accordingly AND RELOAD IT AFTER SAVING IT by e
 
 ## FOR Linux
 ```
-export LEGACYNODE="$HOME/cardano-node-1.35.2-linux"
 export CARDANO_NODE="$HOME/cardano-node-1.35.4-linux"
 
-export PATH="$CARDANO_NODE:$LEGACYNODE:$PATH"
+export PATH="$CARDANO_NODE:$PATH"
 export TESTNETPATH="$HOME/testnet"
 
 #magic id for preview network is 2, preprod 1
 export TESTNET="--testnet-magic 1"
 
-#legacy magic id
-#export TESTNET="--testnet-magic 1097911063"
+
 
 #socket path remains same, no change required as we're creating this file ourselves
 export CARDANO_NODE_SOCKET_PATH="$TESTNETPATH/node.socket"
 
 alias previewnode='$CARDANO_NODE/cardano-node run --topology $TESTNETPATH/config/preview/topology.json --database-path $TESTNETPATH/db/preview/ --socket-path $CARDANO_NODE_SOCKET_PATH --port 3001 --config $TESTNETPATH/config/preview/config.json'
+
 alias preprodnode='$CARDANO_NODE/cardano-node run --topology $TESTNETPATH/config/preprod/topology.json --database-path $TESTNETPATH/db/preprod/ --socket-path $CARDANO_NODE_SOCKET_PATH --port 3001 --config $TESTNETPATH/config/preprod/config.json'
-alias legacynode='$LEGACYNODE/cardano-node run --topology $TESTNETPATH/config/legacy/testnet-topology.json --database-path $TESTNETPATH/db/legacy/ --socket-path $CARDANO_NODE_SOCKET_PATH --port 3001 --config $TESTNETPATH/config/legacy/testnet-config.json'
+
 alias ctip='cardano-cli query tip $TESTNET'
 
 
@@ -48,24 +47,23 @@ function submit() { cardano-cli transaction submit --tx-file $1 $TESTNET ;}
 
 ## FOR MacOS
 ```
-export LEGACYNODE="$HOME/cardano-node-1.35.2-macos"
 export CARDANO_NODE="$HOME/cardano-node-1.35.4-macos"
 
-export PATH="$CARDANO_NODE:$LEGACYNODE:$PATH"
+export PATH="$CARDANO_NODE:$PATH"
 export TESTNETPATH="$HOME/testnet"
 
 #magic id for preview network is 2, preprod 1
 export TESTNET="--testnet-magic 1"
 
-#legacy magic id
-#export TESTNET="--testnet-magic 1097911063"
+
 
 #socket path remains same, no change required as we're creating this file ourselves
 export CARDANO_NODE_SOCKET_PATH="$TESTNETPATH/node.socket"
 
 alias previewnode='$CARDANO_NODE/cardano-node run --topology $TESTNETPATH/config/preview/topology.json --database-path $TESTNETPATH/db/preview/ --socket-path $CARDANO_NODE_SOCKET_PATH --port 3001 --config $TESTNETPATH/config/preview/config.json'
+
 alias preprodnode='$CARDANO_NODE/cardano-node run --topology $TESTNETPATH/config/preprod/topology.json --database-path $TESTNETPATH/db/preprod/ --socket-path $CARDANO_NODE_SOCKET_PATH --port 3001 --config $TESTNETPATH/config/preprod/config.json'
-alias legacynode='$LEGACYNODE/cardano-node run --topology $TESTNETPATH/config/legacy/testnet-topology.json --database-path $TESTNETPATH/db/legacy/ --socket-path $CARDANO_NODE_SOCKET_PATH --port 3001 --config $TESTNETPATH/config/legacy/testnet-config.json'
+
 alias ctip='cardano-cli query tip $TESTNET'
 
 function utxo() { cardano-cli query utxo $TESTNET --address $1 ; }
