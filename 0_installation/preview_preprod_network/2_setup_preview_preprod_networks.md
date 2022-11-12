@@ -7,7 +7,7 @@ Once you have built the cardano-node version 1.35.4, please follow the below ste
 - testnet folder as in  ~/testnet (refer environment variable below)
 - preview network configuration files under ~/testnet/config/preview/
 - preprod network configuration files under ~/testnet/config/preprod/
-- legacy network configuration files under ~/testnet/config/legacy/
+
 
 
 
