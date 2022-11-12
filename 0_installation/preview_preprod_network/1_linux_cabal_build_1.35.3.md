@@ -1,5 +1,5 @@
 # Installing the node from source
-## cardano-node for preview testnet is currently stable with 1.35.3. use the relevant tag when doing the git checkout command
+## cardano-node for preview testnet is currently stable with 1.35.4. use the relevant tag when doing the git checkout command
 ## Note: the same process will work for any tag. 
 
 Please follow the steps as below to make this happen.
@@ -167,7 +167,7 @@ Change the working directory to the downloaded source code folder and checkout t
 ```bash
 cd cardano-node
 
-git checkout tags/1.35.3
+git checkout tags/1.35.4
 
 ```
 
@@ -187,15 +187,15 @@ Build the node and CLI with `cabal`:
 cabal build all
 ```
 
-Install the newly built node and CLI commands to the `~/cardano-node-1.35.3-linux` directory:
+Install the newly built node and CLI commands to the `~/cardano-node-1.35.4-linux` directory:
 
 ```bash
-mkdir -p ~/cardano-node-1.35.3-linux
-cp -p "$(./scripts/bin-path.sh cardano-node)" ~/cardano-node-1.35.3-linux
-cp -p "$(./scripts/bin-path.sh cardano-cli)" ~/cardano-node-1.35.3-linux
+mkdir -p ~/cardano-node-1.35.4-linux
+cp -p "$(./scripts/bin-path.sh cardano-node)" ~/cardano-node-1.35.4-linux
+cp -p "$(./scripts/bin-path.sh cardano-cli)" ~/cardano-node-1.35.4-linux
 ```
 
-**Note:** `~/cardano-node-1.35.3-linux/` should be prependeded to the `$PATH`.
+**Note:** `~/cardano-node-1.35.4-linux/` should be prependeded to the `$PATH`.
 
 Note, we avoid using `cabal install` because that method prevents the installed binaries from reporting
 the git revision with the `--version` switch.
@@ -203,7 +203,7 @@ the git revision with the `--version` switch.
 Check the version that has been installed:
 
 ```bash
-cd ~/cardano-node-1.35.3-linux
+cd ~/cardano-node-1.35.4-linux
 
 ./cardano-cli --version
 ```
