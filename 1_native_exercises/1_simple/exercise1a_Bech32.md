@@ -6,7 +6,7 @@
 Set up the node socket path (if required)
 
     export CARDANO_NODE_SOCKET_PATH=$HOME/latest/node.socket (adapt this to your particular folder)
-    export MAGIC="--testnet-magic 1097911063"
+    export TESTNET="--testnet-magic 2"
 
 Generate necessary keys for second address 
 
@@ -18,7 +18,7 @@ Generate necessary keys for second address
     --payment-verification-key-file addr1_2.vkey \
     --stake-verification-key-file stake1.vkey \
     --out-file addr1_2.addr \
-    ${MAGIC}
+    $TESTNET
     
 ### copy the contents below into a new text file
    bech32 <<< $(cat addr1.addr)
