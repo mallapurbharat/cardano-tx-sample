@@ -5,7 +5,7 @@
 Set up the node socket path (if required)
 
     export CARDANO_NODE_SOCKET_PATH=$HOME/latest/node.socket (adapt this to your particular folder)
-    export MAGIC="--testnet-magic 1097911063"
+    export TESTNET="--testnet-magic 2"
 
 ### Note: The Below steps will help you setup an address and fund it with testAda.
 ### SKIP THIS PART IF YOU ALREADY HAVE A PAYMENT address.
@@ -23,9 +23,9 @@ If not, execute the following steps to create the address and fund it with test 
     --payment-verification-key-file payment.vkey \
     --stake-verification-key-file stake1.vkey \
     --out-file payment.addr \
-    $MAGIC
+    $TESTNET
     
- **Fund the payment address with 1000 Test Ada from the Faucet (https://testnets.cardano.org/en/testnets/cardano/tools/faucet/)**
+ **Fund the payment address with 1000 Test Ada from the Faucet ([ADA Testnet Faucet](https://docs.cardano.org/cardano-testnet/tools/faucet))**
 
 ### CONTINUE FROM HERE IF YOU ALREADY HAVE A PAYMENT ADDRESS 
 Generate necessary keys for the second account
@@ -42,12 +42,12 @@ Generate necessary keys for the second account
     --payment-verification-key-file payment2.vkey \
     --stake-verification-key-file stake2.vkey \
     --out-file payment2.addr \
-    $MAGIC
+    $TESTNET
 
 
 And check the UTxO for the payment address 
     
-    cardano-cli query utxo $MAGIC --address $(cat payment.addr)
+    cardano-cli query utxo $TESTNET --address $(cat payment.addr)
 
                                TxHash                                 TxIx        Amount
     --------------------------------------------------------------------------------------
@@ -64,25 +64,25 @@ Build the transaction using `transaction build` (recommended)
     --tx-in $UTXO1 \
     --tx-out $(cat payment2.addr)+25000000000 \
     --change-address $(cat payment.addr) \
-    ${MAGIC} \
+    $TESTNET \
     --out-file tx.raw
 
 Sign the transaction
 
     cardano-cli transaction sign \
-    ${MAGIC} \
+    $TESTNET \
     --signing-key-file payment.skey \
     --tx-body-file tx.raw \
     --out-file tx.signed
 
 And submit it to the Testnet
 
-    cardano-cli transaction submit ${MAGIC}  --tx-file tx.signed
+    cardano-cli transaction submit $TESTNET  --tx-file tx.signed
 
 
 Check that the result is what you expect
 
-    cardano-cli query utxo ${MAGIC}  --address $(cat payment2.addr)
+    cardano-cli query utxo $TESTNET  --address $(cat payment2.addr)
 
                                TxHash                                 TxIx        Amount
     --------------------------------------------------------------------------------------
