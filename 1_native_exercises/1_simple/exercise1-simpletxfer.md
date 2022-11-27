@@ -79,7 +79,10 @@ And submit it to the Testnet
 
     cardano-cli transaction submit $TESTNET  --tx-file tx.signed
 
+The transaction is submitted, if you wnat to know the transaction hash, just type out the command below:
 
+    cardano-cli transaction txid --tx-file tx.signed
+    
 Check that the result is what you expect
 
     cardano-cli query utxo $TESTNET  --address $(cat payment2.addr)
