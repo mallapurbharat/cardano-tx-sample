@@ -52,8 +52,9 @@ export CARDANO_NODE="$HOME/cardano-node-1.35.4-macos"
 export PATH="$CARDANO_NODE:$PATH"
 export TESTNETPATH="$HOME/testnet"
 
+#if there is a space, zsh breaks unless you expand the variable using parentheses
 #magic id for preview network is 2, preprod 1
-export TESTNET="--testnet-magic 1"
+export TESTNET=(--testnet-magic 2)
 
 
 
