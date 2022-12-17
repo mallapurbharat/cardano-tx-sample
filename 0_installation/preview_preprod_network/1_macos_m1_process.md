@@ -232,7 +232,7 @@ export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:/opt/homebrew/opt/openssl@3/lib
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib -L/opt/homebrew/opt/openssl@3/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include -I/opt/homebrew/opt/openssl@3/include"
 
-PATH="/opt/homebrew/opt/libtool/libexec/gnubin:/opt/homebrew/opt/openssl@3/lib/pkgconfig:/opt/homebrew/opt/homebrew/bin:/opt/homebrew/opt/llvm/bin:$PATH"
+PATH="/opt/homebrew/opt/libtool/libexec/gnubin:/opt/homebrew/opt/openssl@3/lib/pkgconfig:/opt/homebrew:/opt/homebrew/bin:/opt/homebrew/opt/llvm/bin:$PATH"
 ```
 Reload the zshrc file (or exit the terminal and restart it)
 ```
