@@ -51,7 +51,17 @@ cd ~/cardano-node-1.35.3-macos
 ./bech32 --version
 
 ```
-version displayed will be **1.1.2**
+
+In case you get a warning about some .dylib files missing, just copy the files from your cardano-node installation folder  to the /usr/local/lib using the below command
+
+```
+sudo cp ~/cardano-node-1.35.4-macos/*.dylib /usr/local/lib
+
+```
+
+and then execute the bech32 command once more.
+
+bech32 version displayed will be **1.1.2**
 
 ## To further test it's functionality, try the below command
 
