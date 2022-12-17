@@ -8,13 +8,14 @@ The transaction requires use of the witness-override and witness signing feature
 
 ### query utxo for user 1, create environment variable UTXO1  var in prompt with txid#index 
 
-### query utxo for user 2, create utxo2 var in prompt with txid#index
+### query utxo for user 2, create UTXO2 var in prompt with txid#index
 
-### build transaction with two tx-in, one tx-out to user3 and change-address to user2 (for example)
+### build transaction with two tx-in from user1, user2 and having one tx-out to user3 and change-address to user2 (for example)
 
 ### find out about the  --witness-override feature
 
-### witness the transaction using --signing-key-file and --out-file userx.witness for both user1, user2 to create to separate witness files
+### witness the transaction using cardano-cli transaction witness command 
+you will individually sign the transaction using the above command for user1, user2 using --signing-key-file and --out-file userx.witness for both user1, user2 to create to separate witness files
 
 Assemble the transaction with both witness files and successfully submit it to the testnet
 Figure out how this is fundamentally different from the naive implementation of https://developers.cardano.org/docs/integrate-cardano/multi-witness-transactions-cli
