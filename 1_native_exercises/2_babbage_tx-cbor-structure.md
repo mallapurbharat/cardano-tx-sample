@@ -1,7 +1,5 @@
 Copied from https://github.com/input-output-hk/cardano-ledger/blob/master/eras/babbage/test-suite/cddl-files/babbage.cddl for ready reference
 
-
-
 block =
   [ header
   , transaction_bodies         : [* transaction_body]
@@ -48,7 +46,11 @@ operational_cert =
   , sigma           : $signature
   )
 
-protocol_version = (uint, uint)
+next_major_protocol_version = 9
+
+major_protocol_version = 1..next_major_protocol_version
+
+protocol_version = (major_protocol_version, uint)
 
 transaction_body =
   { 0 : set<transaction_input>    ; inputs
