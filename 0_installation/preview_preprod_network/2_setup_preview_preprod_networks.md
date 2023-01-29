@@ -21,7 +21,7 @@ export PATH="$CARDANO_NODE:$PATH"
 export TESTNETPATH="$HOME/testnet"
 
 #magic id for preview network is 2, preprod 1
-export TESTNET="--testnet-magic 1"
+export TESTNET="--testnet-magic 2"
 
 
 
