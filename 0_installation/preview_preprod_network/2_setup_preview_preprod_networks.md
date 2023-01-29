@@ -1,9 +1,9 @@
-Once you have downloaded (https://github.com/input-output-hk/cardano-node/releases/tag/1.35.4) or built the cardano-node version 1.35.4, please follow the below steps to sync to the preview testnet:
+Once you have downloaded (https://github.com/input-output-hk/cardano-node/releases/tag/1.35.5) or built the cardano-node version 1.35.5, please follow the below steps to sync to the preview testnet:
 
 ### Download all the config files from the URL https://book.world.dev.cardano.org/environments.html#preview-testnet into ~/testnet/config/preview
 
 ### FOLDER ORGANIZATION
-- node binaries under $HOME/cardano-node-1.35.4-linux (or macos)
+- node binaries under $HOME/cardano-node-1.35.5-linux (or macos)
 - testnet folder as in  ~/testnet (refer environment variable below)
 - preview network configuration files under ~/testnet/config/preview/
 - preprod network configuration files under ~/testnet/config/preprod/
@@ -15,7 +15,7 @@ UPDATE your .bashrc / .zshrc file accordingly AND RELOAD IT AFTER SAVING IT by e
 
 ## FOR Linux
 ```
-export CARDANO_NODE="$HOME/cardano-node-1.35.4-linux"
+export CARDANO_NODE="$HOME/cardano-node-1.35.5-linux"
 
 export PATH="$CARDANO_NODE:$PATH"
 export TESTNETPATH="$HOME/testnet"
@@ -47,7 +47,7 @@ function submit() { cardano-cli transaction submit --tx-file $1 $TESTNET ;}
 
 ## FOR MacOS
 ```
-export CARDANO_NODE="$HOME/cardano-node-1.35.4-macos"
+export CARDANO_NODE="$HOME/cardano-node-1.35.5-macos"
 
 export PATH="$CARDANO_NODE:$PATH"
 export TESTNETPATH="$HOME/testnet"
