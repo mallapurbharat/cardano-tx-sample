@@ -1,5 +1,8 @@
 #Copied from https://github.com/input-output-hk/cardano-node/blob/master/doc/reference/simple-scripts.md
 
+
+## NOTE: This document contains outdated commands, do not use for class activities or actual transaction building
+
 From the Shelley era onwards, Cardano has supported scripts and script
 addresses.
 
@@ -410,6 +413,8 @@ as described above. For this example, we will describe the process using an
 }
 ```
 
+## NOTE: This document contains outdated commands, do not use for class activities or actual transaction building
+
 #### Step 2 - create a script address
 
 A script address is required in order to use a script. Construct this as follows:
@@ -425,6 +430,9 @@ Note that network flag (`--testnet-magic 42` in the example above) must match
 the network you are using. If you are on mainnet, use the `--mainnet` flag.
 This network flag ensures that addresses for different networks cannot be
 accidentally confused with each other.
+
+
+## NOTE: This document contains outdated commands, do not use for class activities or actual transaction building
 
 #### Step 3 - construct and submit a transaction (tx) to the script address
 
@@ -444,6 +452,10 @@ literal value.
 
 Create the transaction witness:
 
+
+## NOTE: This document contains outdated commands, do not use for class activities or actual transaction building
+
+
 ```bash
 cardano-cli transaction witness
   --tx-body-file txbody
@@ -453,6 +465,9 @@ cardano-cli transaction witness
 ```
 
 Assemble the transaction witness and the tx body to create the transaction:
+
+
+## NOTE: This document contains outdated commands, do not use for class activities or actual transaction building
 
 ```bash
 cardano-cli transaction assemble

@@ -48,7 +48,7 @@ excluding the first two digits (00), copy the part which is uncommon from the ab
 
 add the prefix of 60 - 6 for enterprise address and 0 for testnet
 ```
-bech32 addr <<< 608d755da55a1bc68c43175e40b09d6d102fb97626aa0a036c3a4c760f
+bech32 addr_test <<< 608d755da55a1bc68c43175e40b09d6d102fb97626aa0a036c3a4c760f
 ```
 
 The output of the bech32 command above will be as below:
