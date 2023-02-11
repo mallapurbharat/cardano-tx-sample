@@ -12,7 +12,7 @@ The transaction requires use of the witness-override and witness signing feature
 
 ### build transaction with two tx-in from user1, user2 and having one tx-out to user3 and change-address to user2 (for example)
 
-### find out about the  --witness-override feature
+### find out about the  "--witness-override" feature of the cardano-cli transaction build command
 
 ### witness the transaction using cardano-cli transaction witness command 
 you will individually sign the transaction using the above command for user1, user2 using --signing-key-file and --out-file userx.witness for both user1, user2 to create to separate witness files
