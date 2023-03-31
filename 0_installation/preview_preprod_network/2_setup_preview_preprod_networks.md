@@ -15,7 +15,7 @@ UPDATE your .bashrc / .zshrc file accordingly AND RELOAD IT AFTER SAVING IT by e
 
 ## FOR Linux
 ```
-export CARDANO_NODE="$HOME/cardano-node-1.35.5-linux"
+export CARDANO_NODE="$HOME/cardano-node-1.35.6-linux"
 
 export PATH="$CARDANO_NODE:$PATH"
 export TESTNETPATH="$HOME/testnet"
@@ -47,7 +47,7 @@ function submit() { cardano-cli transaction submit --tx-file $1 $TESTNET ;}
 
 ## FOR MacOS
 ```
-export CARDANO_NODE="$HOME/cardano-node-1.35.5-macos"
+export CARDANO_NODE="$HOME/cardano-node-1.35.6-macos"
 
 export PATH="$CARDANO_NODE:$PATH"
 export TESTNETPATH="$HOME/testnet"
