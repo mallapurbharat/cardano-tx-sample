@@ -22,7 +22,7 @@ To create a transaction in the shelley era onwards, we need to follow this proce
 
 
 **TESTNET ID**
-save the environment variable TESTNET=--testnet-magic 1 / OR 2 / OR 1097911063 ( based upon network)
+save the environment variable TESTNET=--testnet-magic 1 / OR 2 ( based upon network)
 
 **Protocol parameters**
 Query and save the parameters in **protocolparams.json**
@@ -38,7 +38,7 @@ Query and save the parameters in **protocolparams.json**
     
                               TxHash                                 TxIx        Amount
     --------------------------------------------------------------------------------------
-    35a1e638d1c8a1bf74e79ea514adfb8d24113d1391baad2dceace737af30185d     0        1000000000 lovelace + TxOutDatumNone
+    35a1e638d1c8a1bf74e79ea514adfb8d24113d1391baad2dceace737af30185d     0        10000000000 lovelace + TxOutDatumNone
 
 **append and save to env. variable, appending a # followed by the the Index (#0 in this case)**
 
@@ -51,7 +51,7 @@ In the draft `tx-out`, `ttl` and `fee` can be zero. Later we use the `out-file` 
     cardano-cli transaction build-raw \
     --babbage-era \
     --tx-in $UTXO1 \
-    --tx-out $(cat addr2.addr)+250000000 \
+    --tx-out $(cat addr2.addr)+2500000000 \
     --tx-out $(cat addr1.addr)+0 \
     --invalid-hereafter 0 \
     --fee 0 \
@@ -79,9 +79,9 @@ For example:
 
 **Save the return balance to an environment variable**
 This should be understood as (SUM OF INPUT UTXOs) - (SUM OF OUTPUT UTXOs) - Fee
-In this case Input - sent amount - fee = 1000,000,000 lovelace - 250,000,000 lovelace - 167965
+In this case Input - sent amount - fee = 10000,000,000 lovelace - 2500,000,000 lovelace - 167965
 ```
-    BALANCE=$(expr 1000000000 - 250000000 - $FEE)
+    BALANCE=$(expr 10000000000 - 2500000000 - $FEE)
 ```
 **Determine the validity interval**
 
@@ -114,7 +114,7 @@ This time we include all the parameters:
     cardano-cli transaction build-raw \
     --babbage-era \
     --tx-in $UTXO1 \
-    --tx-out $(cat addr2.addr)+250000000 \
+    --tx-out $(cat addr2.addr)+2500000000 \
     --tx-out $(cat addr1.addr)+$BALANCE \
     --invalid-hereafter $VALIDTILL \
     --fee $FEE \
