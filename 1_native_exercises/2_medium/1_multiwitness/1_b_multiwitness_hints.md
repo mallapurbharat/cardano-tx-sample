@@ -14,7 +14,7 @@ The transaction requires use of the witness-override and witness signing feature
 
 ### use the --witness-override 2 --out-file txmultutxo.raw
 
-    transaction view --tx-body-file txmultutxo.raw
+    cardano-cli transaction view --tx-body-file txmultutxo.raw
 
 ### witness the transaction using below command for both user1, user2
 
