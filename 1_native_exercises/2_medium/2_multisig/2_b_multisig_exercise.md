@@ -69,9 +69,9 @@ KEYHASH3=$(cardano-cli address key-hash --payment-verification-key-file payment3
 
 `cardano-cli address build --payment-script-file exampletxs/multisigpolicy.script $TESTNET --out-file exampletxs/multisig.addr`
 
-##### now use the [ADA Testnet faucet](https://testnets.cardano.org/en/testnets/cardano/tools/faucet/) to fund this script address with 1000 Ada.
+##### now use the [ADA Testnet faucet](https://testnets.cardano.org/en/testnets/cardano/tools/faucet/) to fund this script address with 10000 Ada.
 
-##### check if the funds have been received of 1000 Ada
+##### check if the funds have been received of 10000 Ada
 `cardano-cli query utxo --address $(cat exampletxs/multisig.addr) $TESTNET`
 
 ##### take the txid and index and concat them into  a variable UTXO1
