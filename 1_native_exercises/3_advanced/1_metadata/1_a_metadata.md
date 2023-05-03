@@ -126,12 +126,12 @@ $TESTNET
 
 Congratulations, you are now able to submit **Cardano** transactions with metadata embedded into them. 
 
-##Retrieving Metadata 
+## Retrieving Metadata 
 
 There are many ways to retrieve metadata stored in the Cardano blockchain. 
 
 
-###Blockfrost
+### Blockfrost
 
 Blockfrost provides an API to access the Cardano blockchain fast and easily.
 
