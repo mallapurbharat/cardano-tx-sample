@@ -17,7 +17,7 @@ cardano-cli address key-gen \
 cardano-cli address build \
 --payment-verification-key-file payment.vkey \
 --out-file payment.addr \
---testnet-magic 2
+$TESTNET
 ```
 
 Now that you have a **wallet address**, you can now request some `tAda` funds from the [testnet faucet](https://testnets.cardano.org/en/testnets/cardano/tools/faucet/). 
@@ -48,7 +48,7 @@ Now that we have our `JSON` data, we can create a transaction and embed the meta
 The next step is to query the available **UTXO** from our **wallet address**:
 
 ```bash
-cardano-cli query utxo --testnet-magic 2 --address $(cat payment.addr)
+cardano-cli query utxo --address $(cat payment.addr) $TESTNET
 ```
 
 You should see something like this:
@@ -83,7 +83,7 @@ cardano-cli transaction calculate-min-fee \
 --tx-in-count 1 \
 --tx-out-count 1 \
 --witness-count 1 \
---testnet-magic 2 \
+$TESTNET \
 --protocol-params-file protocol.json
 ```
 
@@ -111,7 +111,7 @@ We then sign the transaction using our **payment signing key**:
 cardano-cli transaction sign \             
 --tx-body-file tx.draft \
 --signing-key-file payment.skey \
---testnet-magic 2 \
+$TESTNET \
 --out-file tx.signed 
 ```
 
@@ -121,7 +121,7 @@ Finally, we submit the signed transaction to the blockchain:
 ```bash
 cardano-cli transaction submit \
 --tx-file tx.signed \    
---testnet-magic 2
+$TESTNET
 ```
 
 Congratulations, you are now able to submit **Cardano** transactions with metadata embedded into them. 
