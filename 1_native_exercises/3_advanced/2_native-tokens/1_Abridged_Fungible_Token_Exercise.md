@@ -400,3 +400,10 @@ You should now have 5000 tokens less than before:
 --------------------------------------------------------------------------------------
 f56e2800b7b5980de6a57ebade086a54aaf0457ec517e13012571b712cf53fb3     1        989643170 lovelace + 9995000 45fb072eb2d45b8be940c13d1f235fa5a8263fc8ebe8c1af5194ea9c.5365636F6E6454657374746F6B656E
 ```
+
+
+### Bonus thought exercise : Have some fun scratching your brain on this one!
+Why is it that you need to encode the asset name into hex after cardano-cli version 1.31.0 ?
+
+Have fun trying to answer this one! Hint: It has something to do with unicode!
+
