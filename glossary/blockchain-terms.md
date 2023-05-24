@@ -6,21 +6,21 @@
 
 3. **51% Attack:** A 51% attack (majority attack) is a potential security threat to blockchain networks where a single entity or group controls more than 50% of the network's mining power. This level of control can enable malicious activities, such as double spending or block manipulation.
 
-4. **Address:** An address in the context of blockchain refers to a unique identifier associated with a user's or entity's account. It is used to receive or send cryptocurrencies and serves as a destination or source for transactions on the blockchain.
+4. **Address:** An address in the context of blockchain refers to a unique identifier associated with a user's or entity's account. It is usually created from the hash of the public key of the user account. It is used to receive or send cryptocurrencies and serves as a destination or source for transactions on the blockchain.
 
 5. **Airdrop:** Airdrop is a distribution method where free tokens or cryptocurrencies are given away to a large number of individuals. It is often used as a marketing strategy to promote a project or to reward existing token holders.
 
 6. **Algorithm:** An algorithm in the context of blockchain refers to a set of rules or procedures designed to solve specific mathematical or computational problems. Algorithms are used in various aspects of blockchain, such as mining, consensus mechanisms, and encryption.
 
-7. **Altcoin:** Altcoin is a term used to refer to any cryptocurrency other than Bitcoin. It stands for "alternative coin" and encompasses the thousands of cryptocurrencies that have been created after Bitcoin's inception.
+7. **Altcoin:** Altcoin is a term used to typically refer to any cryptocurrency other than Bitcoin. It stands for "alternative coin" and encompasses the thousands of cryptocurrencies that have been created after Bitcoin's inception.
 
 8. **API (Application Programming Interface):** An API is a set of rules and protocols that allow different software applications to communicate and interact with each other. In the context of blockchain, APIs enable developers to build applications that can access and utilize blockchain data and functionalities.
 
 9. **ASIC (Application-Specific Integrated Circuit):** An ASIC is a specialized hardware device designed to perform a specific task or function. In the context of blockchain, ASICs are commonly used for mining certain cryptocurrencies, offering high computational power and energy efficiency.
 
-10. **Atomic Swap:** An atomic swap is a peer-to-peer exchange of cryptocurrencies between different blockchain networks without the need for intermediaries. It enables direct asset trading and eliminates the risks associated with centralized exchanges.
+10. **Atomic Swap:** An atomic swap is a peer-to-peer exchange of cryptocurrencies between two different blockchain networks without the need for intermediaries. It enables direct asset trading and eliminates the risks associated with centralized exchanges.
 
-11. **Block:** A block is a fundamental unit of data in a blockchain. It contains a collection of transactions and other relevant information, such as a timestamp and a unique identifier (hash). Blocks are linked together to form the blockchain's chronological and immutable record.
+11. **Block:** A block is a fundamental unit of data in a blockchain. It contains a collection of transactions and other relevant information, such as a timestamp and a unique identifier (hash). Blocks are linked together cryptographically to form the blockchain's chronological and immutable record.
 
 12. **Blockchain:** A blockchain is a decentralized and distributed digital ledger that records transactions across multiple computers or nodes. It is designed to be transparent, secure, and resistant to modification. Each transaction is stored in a block, forming a chain of blocks.
 
@@ -29,7 +29,6 @@
 14. **Centralized:** Centralized refers to a system or network that is controlled or managed by a central authority or entity. In the context of blockchain, centralization implies a concentration of power and decision-making in the hands of a few individuals or organizations.
 
 15. **Cold Storage:** Cold storage refers to the offline storage of cryptocurrencies or private keys, typically on hardware devices or physical mediums. It provides
-
  an extra layer of security by keeping the assets disconnected from the internet and inaccessible to hackers or online threats.
 
 16. **Consensus Mechanism:** A consensus mechanism is a set of rules and protocols used by blockchain networks to achieve agreement among nodes on the validity and ordering of transactions. It ensures the integrity and consistency of the blockchain's data.
@@ -60,9 +59,7 @@
 
 29. **FOMO (Fear of Missing Out):** FOMO is a term used to describe the fear or anxiety of missing out on potential opportunities or gains in the market. In the context of blockchain and cryptocurrencies, FOMO often refers to the fear of missing out on profitable investments or token sales.
 
-30. **FUD (Fear, Uncertainty, and Doubt):** FUD is a term used to describe the spreading of negative or misleading information to create fear, uncertainty, and doubt among investors or participants in the market. It can be used as a manipulation tactic in the context of cryptocurrencies and blockchain projects
-
-.
+30. **FUD (Fear, Uncertainty, and Doubt):** FUD is a term used to describe the spreading of negative or misleading information to create fear, uncertainty, and doubt among investors or participants in the market. It can be used as a manipulation tactic in the context of cryptocurrencies and blockchain projects.
 
 31. **Gas:** Gas is a unit of measurement used to quantify the computational effort required to execute operations or smart contracts on the Ethereum blockchain. It determines the transaction fees and resource allocation in the network.
 
@@ -92,9 +89,7 @@
 
 44. **Key Pair:** A key pair consists of a public key and a private key. The public key is used for encryption or verifying digital signatures, while the private key is kept secret and used for decryption or generating digital signatures. Key pairs are fundamental to blockchain security and identity management.
 
-45. **KYC (Know Your Customer):** KYC is a regulatory process that requires businesses or organizations to verify the identity of their customers or clients. In the context of blockchain and cryptocurrencies, KYC measures are often implemented to comply with anti-money laundering (
-
-AML) and counter-terrorism financing (CTF) regulations.
+45. **KYC (Know Your Customer):** KYC is a regulatory process that requires businesses or organizations to verify the identity of their customers or clients. In the context of blockchain and cryptocurrencies, KYC measures are often implemented to comply with anti-money laundering (AML) and counter-terrorism financing (CTF) regulations.
 
 46. **Lightning Network:** The Lightning Network is a second-layer protocol built on top of certain blockchain networks, such as Bitcoin. It aims to enable faster and more scalable transactions by conducting off-chain micropayments and settling the final results on the blockchain.
 
@@ -124,9 +119,7 @@ AML) and counter-terrorism financing (CTF) regulations.
 
 59. **Permissioned Blockchain:** A permissioned blockchain is a type of blockchain where access and participation are restricted to a predefined group of participants. It is often used in enterprise settings or consortiums, where privacy, control, and regulatory compliance are important considerations.
 
-60. **Permissionless Blockchain:** A permissionless blockchain is a type of blockchain where anyone can join
-
- the network, participate in consensus, and perform transactions without requiring explicit permission. It promotes openness, inclusivity, and censorship resistance.
+60. **Permissionless Blockchain:** A permissionless blockchain is a type of blockchain where anyone can join the network, participate in consensus, and perform transactions without requiring explicit permission. It promotes openness, inclusivity, and censorship resistance.
 
 61. **PoW (Proof of Work):** Proof of Work is a consensus mechanism used in blockchain networks, such as Bitcoin. It requires participants (miners) to solve complex mathematical puzzles to validate and add new blocks to the blockchain. The solution serves as proof of their work and secures the network.
 
@@ -154,9 +147,7 @@ AML) and counter-terrorism financing (CTF) regulations.
 
 73. **SegWit (Segregated Witness):** SegWit is a protocol upgrade implemented in certain blockchain networks, including Bitcoin. It aims to improve scalability and increase the block capacity by segregating or separating the transaction signature data from the transaction data.
 
-74. **SHA-256 (Secure Hash Algorithm 256-bit):** SHA-256 is a cryptographic hash function that generates a fixed-size 256-bit (32-byte) hash. It is widely used in blockchain networks, including Bitcoin, to ensure data integrity, verify transactions, and
-
- secure the network.
+74. **SHA-256 (Secure Hash Algorithm 256-bit):** SHA-256 is a cryptographic hash function that generates a fixed-size 256-bit (32-byte) hash. It is widely used in blockchain networks, including Bitcoin, to ensure data integrity, verify transactions, and secure the network.
 
 75. **Sharding:** Sharding is a technique used to improve the scalability of blockchain networks. It involves partitioning the blockchain into smaller subsets called shards, where each shard processes a portion of the total transactions, enabling parallel processing and reducing the overall network load.
 
@@ -186,9 +177,7 @@ AML) and counter-terrorism financing (CTF) regulations.
 
 88. **Trustless:** Trustless refers to the concept of conducting transactions or interactions on the blockchain without the need for trust in a centralized authority or intermediary. Blockchain technology enables participants to verify and validate transactions based on cryptographic algorithms and consensus mechanisms.
 
-89. **Turing Complete:** Turing complete is a term used to describe a system or programming language that can perform any computation that a Turing machine can. In the context of blockchain, Turing complete smart contract languages allow
-
- for the execution of arbitrary and complex computations.
+89. **Turing Complete:** Turing complete is a term used to describe a system or programming language that can perform any computation that a Turing machine can. In the context of blockchain, Turing complete smart contract languages allow for the execution of arbitrary and complex computations.
 
 90. **Two-Factor Authentication (2FA):** Two-Factor Authentication is a security measure that requires users to provide two different forms of authentication, typically a combination of a password and a unique verification code, to access an account or perform certain actions. It enhances account security by adding an extra layer of protection.
 
