@@ -1,4 +1,4 @@
-Once you have downloaded ([https://github.com/input-output-hk/cardano-node/releases/tag/1.35.6](https://github.com/input-output-hk/cardano-node/releases/tag/8.1.1)) or built the cardano-node version 1.35.6, please follow the below steps to sync to the preview testnet:
+Once you have downloaded https://github.com/input-output-hk/cardano-node/releases/tag/8.1.1 or built the cardano-node version 8.1.1, please follow the below steps to sync to the preview testnet:
 
 ### Download all the config files from the URL https://book.world.dev.cardano.org/environments.html#preview-testnet into ~/testnet/config/preview
 
