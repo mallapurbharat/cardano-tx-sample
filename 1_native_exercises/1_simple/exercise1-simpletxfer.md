@@ -62,7 +62,7 @@ Build the transaction using `transaction build` (recommended)
     cardano-cli transaction build \
     --babbage-era \
     --tx-in $UTXO1 \
-    --tx-out $(cat payment2.addr)+25000000000 \
+    --tx-out $(cat payment2.addr)+2500000000 \
     --change-address $(cat payment.addr) \
     $TESTNET \
     --out-file tx.raw
@@ -89,4 +89,4 @@ Check that the result is what you expect
 
                                TxHash                                 TxIx        Amount
     --------------------------------------------------------------------------------------
-    7d721d8a0cc2f3d87f44d4df22d6815f58fb67f421b283462ff3b823c36f34a6     1        25000000000 lovelace + TxOutDatumHashNone
+    7d721d8a0cc2f3d87f44d4df22d6815f58fb67f421b283462ff3b823c36f34a6     1        2500000000 lovelace + TxOutDatumHashNone
